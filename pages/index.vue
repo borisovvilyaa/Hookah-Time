@@ -4,7 +4,7 @@
     <div class="hero-wrapper">
       <img 
         :src="heroImage" 
-        alt="Premium Hookah Lounge in Los Angeles - Hookah Time LA - 400+ Flavors"
+        alt="Bespoke CPA Services for Entertainment in Burbank, CA - X Digit"
         class="hero-background-image"
         loading="eager"
         width="1920"
@@ -13,10 +13,10 @@
       <HeroSection />
     </div>
     <ServicesSection />
-    <MenuPreview />
+    <CarsList />
     <AboutSection />
-    <GallerySection />
-    <CtaSection :formData="formData" :submitReservation="submitReservation" />
+
+    <CtaSection :formData="formData" :submitQuote="submitQuote" />
   </div>
 </template>
 
@@ -27,9 +27,9 @@ import { useHead, useSeoMeta } from '@unhead/vue';
 import HeroSection from '~/components/Home/HeroSection.vue';
 import CtaSection from '~/components/Home/CtaSection.vue';
 import ServicesSection from '~/components/Home/ServicesSection.vue';
-import MenuPreview from '~/components/Home/MenuPreview.vue';
+import CarsList from '~/components/Home/CarsList.vue';
 import AboutSection from '~/components/Home/AboutSection.vue';
-import GallerySection from '~/components/Home/GallerySection.vue';
+
 
 // SEO Meta Tags
 useHead({
@@ -338,24 +338,33 @@ useSeoMeta({
   twitterImage: 'https://hookahtimela.com/images/hookah-lounge-hero.webp',
 });
 
+
 // Component state
 const formData = ref({
   name: '',
   phone: '',
   email: '',
-  date: '',
-  time: '',
-  guests: '',
 });
 
 // Define hero image
-const heroImage = 'https://hookahtimela.com/images/hookah-lounge-hero.webp';
+const heroImage = 'https://www.xdigit.us/_nuxt/hero.BK7PjjLv.webp';
 
 // Methods
-const submitReservation = async () => {
+const getImageUrl = (url) => {
+  return url;
+};
+
+const formatPrice = (price, categories) => {
+  const isEntertainmentService =
+    categories &&
+    categories.some((cat) => cat.title && cat.title.toLowerCase().includes('entertainment'));
+  return isEntertainmentService ? `Starting at $${price.toFixed(2)}` : `$${price.toFixed(2)}`;
+};
+
+const submitQuote = async () => {
   try {
     const config = useRuntimeConfig();
-    const response = await fetch(`${config.public.shopApiUrl}/reservations`, {
+    const response = await fetch(`${config.public.shopApiUrl}/quotes`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -366,9 +375,6 @@ const submitReservation = async () => {
           name: formData.value.name,
           phone: formData.value.phone,
           email: formData.value.email,
-          date: formData.value.date,
-          time: formData.value.time,
-          guests: formData.value.guests,
         },
       }),
     });
@@ -382,14 +388,11 @@ const submitReservation = async () => {
       name: '',
       phone: '',
       email: '',
-      date: '',
-      time: '',
-      guests: '',
     };
-    alert('Your table reservation has been submitted successfully! We\'ll contact you shortly to confirm.');
+    alert('Your quote request has been submitted successfully!');
   } catch (error) {
-    console.error('Error submitting reservation:', error);
-    alert('There was an error submitting your reservation. Please call us at +1 424-424-0044.');
+    console.error('Error submitting quote:', error);
+    alert('There was an error submitting your quote. Please try again.');
   }
 };
 </script>
@@ -399,13 +402,13 @@ const submitReservation = async () => {
   width: 100%;
   overflow: hidden;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: #0a0a0a;
+  background-color: #f8f8f8;
 }
 
 .hero-wrapper {
   position: relative;
   width: 100%;
-  min-height: 700px;
+  min-height: 600px;
   overflow: hidden;
 }
 
@@ -417,27 +420,20 @@ const submitReservation = async () => {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  z-index: 0;
-  opacity: 0.4;
-  filter: brightness(0.7);
+  z-index: -1;
+  opacity: 0.9;
 }
 
 /* Media queries for responsive image */
-@media (max-width: 1024px) {
-  .hero-wrapper {
-    min-height: 600px;
-  }
-}
-
 @media (max-width: 768px) {
   .hero-wrapper {
-    min-height: 500px;
+    min-height: 400px;
   }
 }
 
 @media (max-width: 480px) {
   .hero-wrapper {
-    min-height: 400px;
+    min-height: 300px;
   }
 }
 </style>
