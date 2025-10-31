@@ -4,7 +4,7 @@
     <div class="hero-wrapper">
       <img 
         :src="heroImage" 
-        alt="Bespoke CPA Services for Entertainment in Burbank, CA - X Digit"
+        alt="Premium Hookah Lounge in Los Angeles - Hookah Time LA - 400+ Flavors"
         class="hero-background-image"
         loading="eager"
         width="1920"
@@ -13,10 +13,10 @@
       <HeroSection />
     </div>
     <ServicesSection />
-    <CarsList />
+    <MenuPreview />
     <AboutSection />
-
-    <CtaSection :formData="formData" :submitQuote="submitQuote" />
+    <GallerySection />
+    <CtaSection :formData="formData" :submitReservation="submitReservation" />
   </div>
 </template>
 
@@ -27,25 +27,25 @@ import { useHead, useSeoMeta } from '@unhead/vue';
 import HeroSection from '~/components/Home/HeroSection.vue';
 import CtaSection from '~/components/Home/CtaSection.vue';
 import ServicesSection from '~/components/Home/ServicesSection.vue';
-import CarsList from '~/components/Home/CarsList.vue';
+import MenuPreview from '~/components/Home/MenuPreview.vue';
 import AboutSection from '~/components/Home/AboutSection.vue';
-
+import GallerySection from '~/components/Home/GallerySection.vue';
 
 // SEO Meta Tags
 useHead({
-  title: 'Astoria Motors | Premium Car Leasing & Financing in California | Best Deals',
+  title: 'Hookah Time LA | #1 Premium Hookah Lounge in Los Angeles | 400+ Flavors',
   meta: [
     {
       name: 'description',
-      content: 'Astoria Motors offers premium car leasing and financing solutions across California. Lease luxury vehicles at unbeatable prices with fast, hassle-free service. Range Rover, Lexus & more. ☎️ +1 415-619-4812',
+      content: 'Experience LA\'s best hookah lounge at Hookah Time! 400+ premium flavors, expert mix masters, indoor & outdoor seating. Open 2PM-2AM daily. Ladies Night every day! Located at 4716 Woodman Ave. ☎️ +1 424-424-0044',
     },
     {
       name: 'keywords',
-      content: 'car leasing California, vehicle financing, luxury car lease, Range Rover lease, Lexus lease, automotive brokerage, car dealer California, vehicle sales, auto financing, car rental',
+      content: 'hookah lounge Los Angeles, best hookah LA, hookah bar LA, shisha lounge, hookah flavors, premium hookah, late night hookah, ladies night hookah, outdoor hookah lounge, Woodman Ave hookah, Valley Village hookah, Sherman Oaks hookah',
     },
     {
       name: 'author',
-      content: 'Astoria Motors',
+      content: 'Hookah Time LA',
     },
     {
       name: 'robots',
@@ -58,11 +58,11 @@ useHead({
     // Open Graph Tags
     {
       property: 'og:title',
-      content: 'Astoria Motors | Premium Car Leasing & Financing in California',
+      content: 'Hookah Time LA | #1 Premium Hookah Lounge in Los Angeles',
     },
     {
       property: 'og:description',
-      content: 'Lease your dream car effortlessly with Astoria Motors. Premium vehicles, unbeatable prices, and flexible financing across California. Fast-track process saves you time.',
+      content: '400+ premium flavors, expert mix masters, indoor & outdoor seating. Open 2PM-2AM daily. Ladies get FREE refills after 6PM! Reserve your table now.',
     },
     {
       property: 'og:type',
@@ -70,19 +70,19 @@ useHead({
     },
     {
       property: 'og:url',
-      content: 'https://astoriamotors.com/',
+      content: 'https://hookahtimela.com/',
     },
     {
       property: 'og:image',
-      content: 'https://astoriamotors.com/images/hero-vehicle.webp',
+      content: 'https://hookahtimela.com/images/hookah-lounge-hero.webp',
     },
     {
       property: 'og:image:alt',
-      content: 'Premium Car Leasing - Astoria Motors California',
+      content: 'Premium Hookah Lounge - Hookah Time Los Angeles',
     },
     {
       property: 'og:site_name',
-      content: 'Astoria Motors',
+      content: 'Hookah Time LA',
     },
     {
       property: 'og:locale',
@@ -95,19 +95,19 @@ useHead({
     },
     {
       name: 'twitter:title',
-      content: 'Astoria Motors | Premium Car Leasing & Financing in California',
+      content: 'Hookah Time LA | #1 Premium Hookah Lounge in Los Angeles',
     },
     {
       name: 'twitter:description',
-      content: 'Lease luxury vehicles at unbeatable prices. Fast service, flexible terms, and expert negotiation. Your dream car delivered effortlessly.',
+      content: '400+ premium flavors, massive clouds guaranteed. Open late 2PM-2AM. Ladies Night every day with free refills!',
     },
     {
       name: 'twitter:image',
-      content: 'https://astoriamotors.com/images/hero-vehicle.webp',
+      content: 'https://hookahtimela.com/images/hookah-lounge-hero.webp',
     },
     {
       name: 'twitter:image:alt',
-      content: 'Astoria Motors - Premium Car Leasing',
+      content: 'Hookah Time LA - Premium Hookah Lounge',
     },
     // Local Business Schema
     {
@@ -118,15 +118,19 @@ useHead({
       name: 'geo.placename',
       content: 'Los Angeles, California',
     },
+    {
+      name: 'geo.position',
+      content: '34.1689;-118.4379',
+    },
   ],
   link: [
     {
       rel: 'canonical',
-      href: 'https://astoriamotors.com/',
+      href: 'https://hookahtimela.com/',
     },
     {
       rel: 'preload',
-      href: 'https://astoriamotors.com/images/hero-vehicle.webp',
+      href: 'https://hookahtimela.com/images/hookah-lounge-hero.webp',
       as: 'image',
       type: 'image/webp',
     },
@@ -136,78 +140,186 @@ useHead({
       type: 'application/ld+json',
       innerHTML: JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Astoria Motors",
-        "description": "Premium automotive brokerage offering car leasing, financing, and vehicle sales across California. Expert negotiation for best deals on luxury vehicles.",
-        "url": "https://astoriamotors.com/",
-        "telephone": "+1-415-619-4812",
-        "email": "info@cardeals.com",
+        "@type": "NightClub",
+        "name": "Hookah Time LA",
+        "description": "LA's premier hookah lounge featuring 400+ premium flavors, expert mix masters, and both indoor & outdoor seating. Open 2PM-2AM daily with special Ladies Night promotions.",
+        "url": "https://hookahtimela.com/",
+        "telephone": "+1-424-424-0044",
+        "email": "info@hookahtimela.com",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Los Angeles",
+          "streetAddress": "4716 Woodman Ave",
           "addressLocality": "Los Angeles",
           "addressRegion": "CA",
+          "postalCode": "91423",
           "addressCountry": "US"
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": "34.0522",
-          "longitude": "-118.2437"
+          "latitude": "34.1689",
+          "longitude": "-118.4379"
         },
-        "openingHours": "Mo-Fr 09:00-19:00, Sa 10:00-18:00",
-        "priceRange": "$$$$",
-        "image": "https://astoriamotors.com/images/hero-vehicle.webp",
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "14:00",
+          "closes": "02:00"
+        },
+        "priceRange": "$$",
+        "image": "https://hookahtimela.com/images/hookah-lounge-hero.webp",
+        "logo": "https://hookahtimela.com/images/hookah-time-logo.png",
         "sameAs": [
-          "https://www.instagram.com/astoriamotors",
-          "https://www.tiktok.com/astoriamotors"
+          "https://www.instagram.com/hookahtimela",
+          "https://www.tiktok.com/@hookahtimela"
         ],
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "reviewCount": "150"
+          "ratingValue": "4.9",
+          "reviewCount": "287",
+          "bestRating": "5",
+          "worstRating": "1"
         },
-        "areaServed": {
-          "@type": "State",
-          "name": "California"
-        },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Automotive Leasing and Sales Services",
-          "itemListElement": [
+        "paymentAccepted": "Cash, Credit Card",
+        "currenciesAccepted": "USD",
+        "amenityFeature": [
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Outdoor Seating",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Guest Parking",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Indoor Seating",
+            "value": true
+          }
+        ],
+        "servesCuisine": "Hookah Lounge",
+        "hasMenu": {
+          "@type": "Menu",
+          "name": "Hookah Menu",
+          "description": "Premium hookah flavors including AL FAKHER, FUMARI, STARBUZZ, TANGIERS, DARKSIDE, BLACKBURN, and more",
+          "hasMenuSection": [
             {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Car Leasing & Financing",
-                "serviceType": "Automotive Financing"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "New & Used Vehicle Sales",
-                "serviceType": "Automotive Sales"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Auto Insurance Services",
-                "serviceType": "Insurance"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Vehicle Tinting & Wrapping",
-                "serviceType": "Automotive Customization"
-              }
+              "@type": "MenuSection",
+              "name": "Hookah Bowls",
+              "description": "400+ premium flavors from top brands",
+              "hasMenuItem": [
+                {
+                  "@type": "MenuItem",
+                  "name": "AL FAKHER Hookah Bowl",
+                  "description": "Premium shisha flavors including Grape, Orange, Gum Mint, Double Apple",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "38",
+                    "priceCurrency": "USD"
+                  }
+                },
+                {
+                  "@type": "MenuItem",
+                  "name": "TANGIERS Hookah Bowl",
+                  "description": "Premium flavors including Peach Ice Tea, Cane Mint, Kashmir Peach",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "47",
+                    "priceCurrency": "USD"
+                  }
+                }
+              ]
             }
           ]
+        },
+        "event": {
+          "@type": "Event",
+          "name": "Ladies Night",
+          "description": "Ladies get free refills after 6PM every day",
+          "startDate": "2025-01-01",
+          "endDate": "2025-12-31",
+          "eventSchedule": {
+            "@type": "Schedule",
+            "byDay": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "startTime": "18:00",
+            "endTime": "02:00"
+          },
+          "location": {
+            "@type": "Place",
+            "name": "Hookah Time LA",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "4716 Woodman Ave",
+              "addressLocality": "Los Angeles",
+              "addressRegion": "CA",
+              "postalCode": "91423"
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "Free refills for ladies"
+          }
         }
+      })
+    },
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What are your opening hours?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We're open every day from 2:00 PM to 2:00 AM. Whether you want an afternoon session or late-night vibes, we're here for you 12 hours daily!"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer custom flavor mixes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! With 400+ premium flavors, our expert mix masters can create any custom blend you desire. Just tell us what you like and we'll make it perfect."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is there parking available?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! We offer convenient guest parking for all our visitors. You'll never have trouble finding a spot when you visit Hookah Time LA."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the Ladies Night special?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every single day is Ladies Night at Hookah Time! Ladies get FREE refills after 6:00 PM. Bring your crew and enjoy unlimited refills all night long."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What brands of tobacco do you offer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We carry premium brands including AL FAKHER, FUMARI, STARBUZZ, TANGIERS, BANGER, DARKSIDE, BLACKBURN, MUSTHAVE, and STARLINE - over 400 different flavors to choose from!"
+            }
+          }
+        ]
       })
     }
   ]
@@ -215,40 +327,35 @@ useHead({
 
 // Additional SEO meta using useSeoMeta
 useSeoMeta({
-  title: 'Astoria Motors | Premium Car Leasing & Financing in California | Best Deals',
-  description: 'Astoria Motors offers premium car leasing and financing solutions across California. Lease luxury vehicles at unbeatable prices with fast, hassle-free service. ☎️ +1 415-619-4812',
-  ogTitle: 'Astoria Motors | Premium Car Leasing & Financing in California',
-  ogDescription: 'Lease your dream car effortlessly with Astoria Motors. Premium vehicles, unbeatable prices, and flexible financing across California.',
+  title: 'Hookah Time LA | #1 Premium Hookah Lounge in Los Angeles | 400+ Flavors',
+  description: 'Experience LA\'s best hookah lounge at Hookah Time! 400+ premium flavors, expert mix masters, indoor & outdoor seating. Open 2PM-2AM daily. Ladies Night every day! ☎️ +1 424-424-0044',
+  ogTitle: 'Hookah Time LA | #1 Premium Hookah Lounge in Los Angeles',
+  ogDescription: '400+ premium flavors, expert mix masters, indoor & outdoor seating. Open 2PM-2AM daily. Ladies get FREE refills after 6PM!',
+  ogImage: 'https://hookahtimela.com/images/hookah-lounge-hero.webp',
   twitterCard: 'summary_large_image',
+  twitterTitle: 'Hookah Time LA | #1 Premium Hookah Lounge in Los Angeles',
+  twitterDescription: '400+ premium flavors, massive clouds guaranteed. Open late 2PM-2AM. Ladies Night every day!',
+  twitterImage: 'https://hookahtimela.com/images/hookah-lounge-hero.webp',
 });
-
 
 // Component state
 const formData = ref({
   name: '',
   phone: '',
   email: '',
+  date: '',
+  time: '',
+  guests: '',
 });
 
 // Define hero image
-const heroImage = 'https://www.xdigit.us/_nuxt/hero.BK7PjjLv.webp';
+const heroImage = 'https://hookahtimela.com/images/hookah-lounge-hero.webp';
 
 // Methods
-const getImageUrl = (url) => {
-  return url;
-};
-
-const formatPrice = (price, categories) => {
-  const isEntertainmentService =
-    categories &&
-    categories.some((cat) => cat.title && cat.title.toLowerCase().includes('entertainment'));
-  return isEntertainmentService ? `Starting at $${price.toFixed(2)}` : `$${price.toFixed(2)}`;
-};
-
-const submitQuote = async () => {
+const submitReservation = async () => {
   try {
     const config = useRuntimeConfig();
-    const response = await fetch(`${config.public.shopApiUrl}/quotes`, {
+    const response = await fetch(`${config.public.shopApiUrl}/reservations`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -259,6 +366,9 @@ const submitQuote = async () => {
           name: formData.value.name,
           phone: formData.value.phone,
           email: formData.value.email,
+          date: formData.value.date,
+          time: formData.value.time,
+          guests: formData.value.guests,
         },
       }),
     });
@@ -272,11 +382,14 @@ const submitQuote = async () => {
       name: '',
       phone: '',
       email: '',
+      date: '',
+      time: '',
+      guests: '',
     };
-    alert('Your quote request has been submitted successfully!');
+    alert('Your table reservation has been submitted successfully! We\'ll contact you shortly to confirm.');
   } catch (error) {
-    console.error('Error submitting quote:', error);
-    alert('There was an error submitting your quote. Please try again.');
+    console.error('Error submitting reservation:', error);
+    alert('There was an error submitting your reservation. Please call us at +1 424-424-0044.');
   }
 };
 </script>
@@ -286,13 +399,13 @@ const submitQuote = async () => {
   width: 100%;
   overflow: hidden;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: #f8f8f8;
+  background-color: #0a0a0a;
 }
 
 .hero-wrapper {
   position: relative;
   width: 100%;
-  min-height: 600px;
+  min-height: 700px;
   overflow: hidden;
 }
 
@@ -304,20 +417,27 @@ const submitQuote = async () => {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  z-index: -1;
-  opacity: 0.9;
+  z-index: 0;
+  opacity: 0.4;
+  filter: brightness(0.7);
 }
 
 /* Media queries for responsive image */
+@media (max-width: 1024px) {
+  .hero-wrapper {
+    min-height: 600px;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-wrapper {
-    min-height: 400px;
+    min-height: 500px;
   }
 }
 
 @media (max-width: 480px) {
   .hero-wrapper {
-    min-height: 300px;
+    min-height: 400px;
   }
 }
 </style>
