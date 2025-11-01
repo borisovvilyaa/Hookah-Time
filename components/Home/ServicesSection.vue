@@ -122,20 +122,8 @@
         </div>
       </div>
 
-      <!-- Special Offer Banner -->
-      <div class="special-offer" data-animate data-delay="600">
-        <div class="offer-content">
-          <div class="offer-badge">Special</div>
-          <div class="offer-text">
-            <h3 class="offer-title">Ladies Night Every Day</h3>
-            <p class="offer-description">Ladies get free refills after 6PM daily. Bring your crew and enjoy!</p>
-          </div>
-          <div class="offer-icon">✨</div>
-        </div>
-      </div>
-
       <!-- Bottom Stats -->
-      <div class="stats-grid" data-animate data-delay="700">
+      <div class="stats-grid" data-animate data-delay="600">
         <div class="stat-item">
           <div class="stat-number">400+</div>
           <div class="stat-label">Flavor Options</div>
@@ -456,65 +444,6 @@ onUnmounted(() => {
   font-size: 1.2rem;
 }
 
-/* Special Offer */
-.special-offer {
-  margin-bottom: 80px;
-}
-
-.offer-content {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  padding: 40px 48px;
-  background: linear-gradient(135deg, rgba(253, 185, 19, 0.08) 0%, rgba(253, 185, 19, 0.02) 100%);
-  border: 1px solid rgba(253, 185, 19, 0.3);
-  position: relative;
-  overflow: hidden;
-}
-
-.offer-content::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 4px;
-  height: 100%;
-  background: #FDB913;
-}
-
-.offer-badge {
-  padding: 8px 16px;
-  background: #FDB913;
-  color: #000000;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.offer-text {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.offer-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.95);
-  letter-spacing: 0.02em;
-}
-
-.offer-description {
-  font-size: 1rem;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.offer-icon {
-  font-size: 2rem;
-}
 
 /* Stats Grid */
 .stats-grid {
