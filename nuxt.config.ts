@@ -10,77 +10,88 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1.0',
-      title: 'Astoria Motors | Premium Car Leasing & Financing in California | Best Deals',
+      title: 'Hookah Time LA | #1 Premium Hookah Lounge in Los Angeles',
       meta: [
         {
           name: 'description',
           content:
-            'Astoria Motors offers premium car leasing and financing solutions across California. Lease luxury vehicles at unbeatable prices with fast, hassle-free service. Range Rover, Lexus & more. ☎️ +1 415-619-4812',
+            'Experience LA\'s best hookah lounge at Hookah Time! 400+ premium flavors, expert mix masters, indoor & outdoor seating. Open 2PM-2AM daily. Ladies Night every day! ☎️ +1 424-424-0044',
         },
         {
           name: 'keywords',
           content:
-            'car leasing California, vehicle financing, luxury car lease, Range Rover lease, Lexus lease, automotive brokerage, car dealer California, vehicle sales, auto financing, car rental',
+            'hookah lounge Los Angeles, best hookah LA, hookah bar LA, shisha lounge, hookah flavors, premium hookah, late night hookah, ladies night hookah, outdoor hookah lounge, Woodman Ave hookah',
         },
-        { name: 'author', content: 'Astoria Motors' },
+        { name: 'author', content: 'Hookah Time LA' },
         { name: 'robots', content: 'index, follow' },
 
         // Open Graph
         {
           property: 'og:title',
-          content: 'Astoria Motors | Premium Car Leasing & Financing in California',
+          content: 'Hookah Time LA | #1 Premium Hookah Lounge in Los Angeles',
         },
         {
           property: 'og:description',
           content:
-            'Lease your dream car effortlessly with Astoria Motors. Premium vehicles, unbeatable prices, and flexible financing across California. Fast-track process saves you time.',
+            '400+ premium flavors, expert mix masters, indoor & outdoor seating. Open 2PM-2AM daily. Ladies get FREE refills after 6PM! Reserve your table now.',
         },
         { property: 'og:type', content: 'website' },
-        { property: 'og:url', content: 'https://astoriamotors.com/' },
+        { property: 'og:url', content: 'https://hookahtimela.com/' },
         {
           property: 'og:image',
-          content: 'https://astoriamotors.com/images/hero-vehicle.webp',
+          content: 'https://hookahtimela.com/banner.jpg',
         },
         {
           property: 'og:image:alt',
-          content: 'Premium Car Leasing - Astoria Motors California',
+          content: 'Premium Hookah Lounge - Hookah Time Los Angeles',
         },
-        { property: 'og:site_name', content: 'Astoria Motors' },
+        { property: 'og:site_name', content: 'Hookah Time LA' },
         { property: 'og:locale', content: 'en_US' },
 
         // Twitter Card
         { name: 'twitter:card', content: 'summary_large_image' },
         {
           name: 'twitter:title',
-          content: 'Astoria Motors | Premium Car Leasing & Financing in California',
+          content: 'Hookah Time LA | #1 Premium Hookah Lounge in Los Angeles',
         },
         {
           name: 'twitter:description',
           content:
-            'Lease luxury vehicles at unbeatable prices. Fast service, flexible terms, and expert negotiation. Your dream car delivered effortlessly.',
+            '400+ premium flavors, massive clouds guaranteed. Open late 2PM-2AM. Ladies Night every day with free refills!',
         },
         {
           name: 'twitter:image',
-          content: 'https://astoriamotors.com/images/hero-vehicle.webp',
+          content: 'https://hookahtimela.com/banner.jpg',
         },
         {
           name: 'twitter:image:alt',
-          content: 'Astoria Motors - Premium Car Leasing',
+          content: 'Hookah Time LA - Premium Hookah Lounge',
         },
 
         // Local business
         { name: 'geo.region', content: 'US-CA' },
         { name: 'geo.placename', content: 'Los Angeles, California' },
+        { name: 'geo.position', content: '34.1689;-118.4379' },
+        
+        // Theme color для PWA
+        { name: 'theme-color', content: '#1a1a1a' },
       ],
 
       link: [
-        { rel: 'canonical', href: 'https://astoriamotors.com/' },
+        { rel: 'canonical', href: 'https://hookahtimela.com/' },
         {
           rel: 'preload',
-          href: 'https://astoriamotors.com/images/hero-vehicle.webp',
+          href: 'https://hookahtimela.com/banner.jpg',
           as: 'image',
-          type: 'image/webp',
+          type: 'image/jpeg',
         },
+        
+        // Фавиконки
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/android-chrome-192x192.png' },
+        { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/android-chrome-512x512.png' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+        { rel: 'manifest', href: '/site.webmanifest' },
       ],
 
       script: [
@@ -92,79 +103,74 @@ export default defineNuxtConfig({
           type: 'application/ld+json',
           innerHTML: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "Astoria Motors",
+            "@type": "NightClub",
+            "name": "Hookah Time LA",
             "description":
-              "Premium automotive brokerage offering car leasing, financing, and vehicle sales across California. Expert negotiation for best deals on luxury vehicles.",
-            "url": "https://astoriamotors.com/",
-            "telephone": "+1-415-619-4812",
-            "email": "info@cardeals.com",
+              "LA's premier hookah lounge featuring 400+ premium flavors, expert mix masters, and both indoor & outdoor seating. Open 2PM-2AM daily with special Ladies Night promotions.",
+            "url": "https://hookahtimela.com/",
+            "telephone": "+1-424-424-0044",
+            "email": "info@hookahtimela.com",
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "Los Angeles",
+              "streetAddress": "4716 Woodman Ave",
               "addressLocality": "Los Angeles",
               "addressRegion": "CA",
+              "postalCode": "91423",
               "addressCountry": "US",
             },
             "geo": {
               "@type": "GeoCoordinates",
-              "latitude": "34.0522",
-              "longitude": "-118.2437",
+              "latitude": "34.1689",
+              "longitude": "-118.4379",
             },
-            "openingHours": "Mo-Fr 09:00-19:00, Sa 10:00-18:00",
-            "priceRange": "$$$$",
-            "image": "https://astoriamotors.com/images/hero-vehicle.webp",
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ],
+              "opens": "14:00",
+              "closes": "02:00",
+            },
+            "priceRange": "$$",
+            "image": "https://hookahtimela.com/banner.jpg",
+            "logo": "https://hookahtimela.com/banner.jpg",
             "sameAs": [
-              "https://www.instagram.com/astoriamotors",
-              "https://www.tiktok.com/astoriamotors",
+              "https://www.instagram.com/hookahtime_la",
+              "https://www.youtube.com/@HookahTime_LA",
             ],
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": "4.8",
-              "reviewCount": "150",
+              "ratingValue": "4.9",
+              "reviewCount": "287",
+              "bestRating": "5",
+              "worstRating": "1",
             },
-            "areaServed": {
-              "@type": "State",
-              "name": "California",
-            },
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Automotive Leasing and Sales Services",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Car Leasing & Financing",
-                    "serviceType": "Automotive Financing",
-                  },
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "New & Used Vehicle Sales",
-                    "serviceType": "Automotive Sales",
-                  },
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Auto Insurance Services",
-                    "serviceType": "Insurance",
-                  },
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Vehicle Tinting & Wrapping",
-                    "serviceType": "Automotive Customization",
-                  },
-                },
-              ],
-            },
+            "paymentAccepted": "Cash, Credit Card",
+            "currenciesAccepted": "USD",
+            "amenityFeature": [
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Outdoor Seating",
+                "value": true,
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Guest Parking",
+                "value": true,
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Indoor Seating",
+                "value": true,
+              },
+            ],
+            "servesCuisine": "Hookah Lounge",
           }),
         },
       ],
