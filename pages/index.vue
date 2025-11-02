@@ -19,7 +19,6 @@
     <CtaSection :formData="formData" :submitQuote="submitQuote" />
   </div>
 </template>
-
 <script setup>
 import { ref } from 'vue';
 import { useRuntimeConfig } from '#app';
@@ -44,16 +43,8 @@ useHead({
       content: 'hookah lounge Los Angeles, best hookah LA, hookah bar LA, shisha lounge, hookah flavors, premium hookah, late night hookah, ladies night hookah, outdoor hookah lounge, Woodman Ave hookah, Valley Village hookah, Sherman Oaks hookah',
     },
     {
-      name: 'author',
-      content: 'Hookah Time LA',
-    },
-    {
       name: 'robots',
       content: 'index, follow',
-    },
-    {
-      name: 'viewport',
-      content: 'width=device-width, initial-scale=1.0',
     },
     // Open Graph Tags
     {
@@ -72,22 +63,6 @@ useHead({
       property: 'og:url',
       content: 'https://hookahtimela.com/',
     },
-    {
-      property: 'og:image',
-      content: 'https://hookahtimela.com/images/hookah-lounge-hero.webp',
-    },
-    {
-      property: 'og:image:alt',
-      content: 'Premium Hookah Lounge - Hookah Time Los Angeles',
-    },
-    {
-      property: 'og:site_name',
-      content: 'Hookah Time LA',
-    },
-    {
-      property: 'og:locale',
-      content: 'en_US',
-    },
     // Twitter Card Tags
     {
       name: 'twitter:card',
@@ -101,38 +76,11 @@ useHead({
       name: 'twitter:description',
       content: '400+ premium flavors, massive clouds guaranteed. Open late 2PM-2AM. Ladies Night every day with free refills!',
     },
-    {
-      name: 'twitter:image',
-      content: 'https://hookahtimela.com/images/hookah-lounge-hero.webp',
-    },
-    {
-      name: 'twitter:image:alt',
-      content: 'Hookah Time LA - Premium Hookah Lounge',
-    },
-    // Local Business Schema
-    {
-      name: 'geo.region',
-      content: 'US-CA',
-    },
-    {
-      name: 'geo.placename',
-      content: 'Los Angeles, California',
-    },
-    {
-      name: 'geo.position',
-      content: '34.1689;-118.4379',
-    },
   ],
   link: [
     {
       rel: 'canonical',
       href: 'https://hookahtimela.com/',
-    },
-    {
-      rel: 'preload',
-      href: 'https://hookahtimela.com/images/hookah-lounge-hero.webp',
-      as: 'image',
-      type: 'image/webp',
     },
   ],
   script: [
@@ -174,8 +122,6 @@ useHead({
           "closes": "02:00"
         },
         "priceRange": "$$",
-        "image": "https://hookahtimela.com/images/hookah-lounge-hero.webp",
-        "logo": "https://hookahtimela.com/images/hookah-time-logo.png",
         "sameAs": [
           "https://www.instagram.com/hookahtimela",
           "https://www.tiktok.com/@hookahtimela"
@@ -331,11 +277,9 @@ useSeoMeta({
   description: 'Experience LA\'s best hookah lounge at Hookah Time! 400+ premium flavors, expert mix masters, indoor & outdoor seating. Open 2PM-2AM daily. Ladies Night every day! ☎️ +1 424-424-0044',
   ogTitle: 'Hookah Time LA | #1 Premium Hookah Lounge in Los Angeles',
   ogDescription: '400+ premium flavors, expert mix masters, indoor & outdoor seating. Open 2PM-2AM daily. Ladies get FREE refills after 6PM!',
-  ogImage: 'https://hookahtimela.com/images/hookah-lounge-hero.webp',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Hookah Time LA | #1 Premium Hookah Lounge in Los Angeles',
   twitterDescription: '400+ premium flavors, massive clouds guaranteed. Open late 2PM-2AM. Ladies Night every day!',
-  twitterImage: 'https://hookahtimela.com/images/hookah-lounge-hero.webp',
 });
 
 
@@ -396,7 +340,6 @@ const submitQuote = async () => {
   }
 };
 </script>
-
 <style scoped>
 .home {
   width: 100%;
