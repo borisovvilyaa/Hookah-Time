@@ -1,15 +1,6 @@
 export default defineNuxtConfig({
   ssr: true,
 
-  // Настройка для статической генерации на AWS Amplify
-  nitro: {
-    preset: 'static',
-    prerender: {
-      crawlLinks: true,
-      routes: ['/']
-    }
-  },
-
   css: [
     'bootstrap/dist/css/bootstrap.min.css',
     '@fortawesome/fontawesome-free/css/all.css',
