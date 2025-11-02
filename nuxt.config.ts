@@ -25,7 +25,7 @@ export default defineNuxtConfig({
         { name: 'author', content: 'Hookah Time LA' },
         { name: 'robots', content: 'index, follow' },
 
-        // Open Graph
+        // Open Graph (Facebook, LinkedIn, WhatsApp)
         {
           property: 'og:title',
           content: 'Hookah Time LA | #1 Premium Hookah Lounge in Los Angeles',
@@ -42,8 +42,24 @@ export default defineNuxtConfig({
           content: 'https://hookahtimela.com/banner.jpg',
         },
         {
+          property: 'og:image:secure_url',
+          content: 'https://hookahtimela.com/banner.jpg',
+        },
+        {
+          property: 'og:image:type',
+          content: 'image/jpeg',
+        },
+        {
+          property: 'og:image:width',
+          content: '1200',
+        },
+        {
+          property: 'og:image:height',
+          content: '630',
+        },
+        {
           property: 'og:image:alt',
-          content: 'Premium Hookah Lounge - Hookah Time Los Angeles',
+          content: 'Hookah Time LA - Premium Hookah Lounge Interior',
         },
         { property: 'og:site_name', content: 'Hookah Time LA' },
         { property: 'og:locale', content: 'en_US' },
@@ -68,29 +84,47 @@ export default defineNuxtConfig({
           content: 'Hookah Time LA - Premium Hookah Lounge',
         },
 
-        // Local business
+        // Local business SEO
         { name: 'geo.region', content: 'US-CA' },
         { name: 'geo.placename', content: 'Los Angeles, California' },
         { name: 'geo.position', content: '34.1689;-118.4379' },
         
-        // Theme color для PWA
+        // PWA & Mobile
         { name: 'theme-color', content: '#1a1a1a' },
+        { name: 'msapplication-TileColor', content: '#1a1a1a' },
+        { name: 'apple-mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
+        { name: 'apple-mobile-web-app-title', content: 'Hookah Time LA' },
       ],
 
       link: [
         { rel: 'canonical', href: 'https://hookahtimela.com/' },
         {
           rel: 'preload',
-          href: 'https://hookahtimela.com/banner.jpg',
+          href: '/banner.jpg',
           as: 'image',
           type: 'image/jpeg',
         },
         
-        // Фавиконки
+        // Favicons
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/android-chrome-192x192.png' },
-        { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/android-chrome-512x512.png' },
-        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+        { 
+          rel: 'icon', 
+          type: 'image/png', 
+          sizes: '192x192', 
+          href: '/android-chrome-192x192.png' 
+        },
+        { 
+          rel: 'icon', 
+          type: 'image/png', 
+          sizes: '512x512', 
+          href: '/android-chrome-512x512.png' 
+        },
+        { 
+          rel: 'apple-touch-icon', 
+          sizes: '180x180', 
+          href: '/apple-touch-icon.png' 
+        },
         { rel: 'manifest', href: '/site.webmanifest' },
       ],
 
@@ -102,75 +136,75 @@ export default defineNuxtConfig({
         {
           type: 'application/ld+json',
           innerHTML: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "NightClub",
-            "name": "Hookah Time LA",
-            "description":
+            '@context': 'https://schema.org',
+            '@type': 'NightClub',
+            name: 'Hookah Time LA',
+            description:
               "LA's premier hookah lounge featuring 400+ premium flavors, expert mix masters, and both indoor & outdoor seating. Open 2PM-2AM daily with special Ladies Night promotions.",
-            "url": "https://hookahtimela.com/",
-            "telephone": "+1-424-424-0044",
-            "email": "info@hookahtimela.com",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "4716 Woodman Ave",
-              "addressLocality": "Los Angeles",
-              "addressRegion": "CA",
-              "postalCode": "91423",
-              "addressCountry": "US",
+            url: 'https://hookahtimela.com/',
+            telephone: '+1-424-424-0044',
+            email: 'info@hookahtimela.com',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: '4716 Woodman Ave',
+              addressLocality: 'Los Angeles',
+              addressRegion: 'CA',
+              postalCode: '91423',
+              addressCountry: 'US',
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": "34.1689",
-              "longitude": "-118.4379",
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude: '34.1689',
+              longitude: '-118.4379',
             },
-            "openingHoursSpecification": {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-                "Sunday",
+            openingHoursSpecification: {
+              '@type': 'OpeningHoursSpecification',
+              dayOfWeek: [
+                'Monday',
+                'Tuesday',
+                'Wednesday',
+                'Thursday',
+                'Friday',
+                'Saturday',
+                'Sunday',
               ],
-              "opens": "14:00",
-              "closes": "02:00",
+              opens: '14:00',
+              closes: '02:00',
             },
-            "priceRange": "$$",
-            "image": "https://hookahtimela.com/banner.jpg",
-            "logo": "https://hookahtimela.com/banner.jpg",
-            "sameAs": [
-              "https://www.instagram.com/hookahtime_la",
-              "https://www.youtube.com/@HookahTime_LA",
+            priceRange: '$$',
+            image: 'https://hookahtimela.com/banner.jpg',
+            logo: 'https://hookahtimela.com/banner.jpg',
+            sameAs: [
+              'https://www.instagram.com/hookahtime_la',
+              'https://www.youtube.com/@HookahTime_LA',
             ],
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.9",
-              "reviewCount": "287",
-              "bestRating": "5",
-              "worstRating": "1",
+            aggregateRating: {
+              '@type': 'AggregateRating',
+              ratingValue: '4.9',
+              reviewCount: '287',
+              bestRating: '5',
+              worstRating: '1',
             },
-            "paymentAccepted": "Cash, Credit Card",
-            "currenciesAccepted": "USD",
-            "amenityFeature": [
+            paymentAccepted: 'Cash, Credit Card',
+            currenciesAccepted: 'USD',
+            amenityFeature: [
               {
-                "@type": "LocationFeatureSpecification",
-                "name": "Outdoor Seating",
-                "value": true,
+                '@type': 'LocationFeatureSpecification',
+                name: 'Outdoor Seating',
+                value: true,
               },
               {
-                "@type": "LocationFeatureSpecification",
-                "name": "Guest Parking",
-                "value": true,
+                '@type': 'LocationFeatureSpecification',
+                name: 'Guest Parking',
+                value: true,
               },
               {
-                "@type": "LocationFeatureSpecification",
-                "name": "Indoor Seating",
-                "value": true,
+                '@type': 'LocationFeatureSpecification',
+                name: 'Indoor Seating',
+                value: true,
               },
             ],
-            "servesCuisine": "Hookah Lounge",
+            servesCuisine: 'Hookah Lounge',
           }),
         },
       ],
