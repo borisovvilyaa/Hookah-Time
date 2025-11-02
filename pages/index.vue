@@ -15,7 +15,8 @@
     <ServicesSection />
     <CarsList />
     <AboutSection />
-
+    <Blog />
+    <Gallery />
     <CtaSection :formData="formData" :submitQuote="submitQuote" />
   </div>
 </template>
@@ -27,6 +28,9 @@ import HeroSection from '~/components/Home/HeroSection.vue';
 import CtaSection from '~/components/Home/CtaSection.vue';
 import ServicesSection from '~/components/Home/ServicesSection.vue';
 import CarsList from '~/components/Home/CarsList.vue';
+import Blog from '~/components/Home/Blog.vue';
+import Gallery from '~/components/Home/Gallery.vue';
+
 import AboutSection from '~/components/Home/AboutSection.vue';
 
 

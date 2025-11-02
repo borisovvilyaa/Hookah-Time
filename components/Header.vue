@@ -7,6 +7,9 @@
       <div class="header-container">
         <!-- Logo -->
         <NuxtLink to="/" class="logo" @click="closeMobileMenu">
+          <div class="logo-image">
+            <img src="~/assets/logo.png" alt="Hookah Time">
+          </div>
           <div class="logo-wrapper">
             <span class="logo-line">HOOKAH</span>
             <span class="logo-line logo-accent">TIME</span>
@@ -179,7 +182,7 @@ onBeforeUnmount(() => {
 .main-header {
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(20px);
-  padding: 24px 0;
+  padding: 20px 0;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   border-bottom: 1px solid rgba(253, 185, 19, 0.15);
 }
@@ -201,11 +204,10 @@ onBeforeUnmount(() => {
 }
 
 .menu-scrolled .main-header {
-  padding: 18px 0;
+  padding: 16px 0;
 }
 
 .header-container {
-  /* max-width: 1900px; */
   margin: 0 auto;
   padding: 0 80px;
   display: flex;
@@ -217,30 +219,63 @@ onBeforeUnmount(() => {
   text-decoration: none;
   position: relative;
   z-index: 1010;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+.logo-image {
+  width: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 0 12px rgba(253, 185, 19, 0.3));
+}
+
+.logo-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.logo:hover .logo-image {
+  transform: scale(1.08) rotate(3deg);
+  filter: drop-shadow(0 0 20px rgba(253, 185, 19, 0.5));
+}
+
+.logo:hover .logo-image img {
+  filter: brightness(1.1);
 }
 
 .logo-wrapper {
   display: flex;
   flex-direction: column;
   line-height: 1;
+  gap: 2px;
 }
 
 .logo-line {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.95);
   transition: all 0.3s ease;
+  text-shadow: 0 0 20px rgba(253, 185, 19, 0.2);
 }
 
 .logo-accent {
   color: #FDB913;
-  margin-top: -2px;
+  font-size: 1.15rem;
+  text-shadow: 0 0 30px rgba(253, 185, 19, 0.4);
 }
 
 .logo:hover .logo-line {
-  letter-spacing: 0.15em;
+  letter-spacing: 0.16em;
 }
 
 .desktop-nav {
@@ -621,8 +656,17 @@ onBeforeUnmount(() => {
     padding: 0 32px;
   }
 
+  .logo-image {
+    width: 48px;
+    height: 48px;
+  }
+
   .logo-line {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  .logo-accent {
+    font-size: 1rem;
   }
   
   .mobile-menu {
@@ -655,8 +699,21 @@ onBeforeUnmount(() => {
     padding: 0 24px;
   }
 
+  .logo {
+    gap: 12px;
+  }
+
+  .logo-image {
+    width: 42px;
+    height: 42px;
+  }
+
   .logo-line {
     font-size: 0.85rem;
+  }
+
+  .logo-accent {
+    font-size: 0.9rem;
   }
   
   .mobile-nav {
