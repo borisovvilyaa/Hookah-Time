@@ -59,27 +59,27 @@
           </div>
 
           <div class="social-links" data-animate data-delay="400">
-  <a href="https://www.instagram.com/hookahtime_la" class="social-link" aria-label="Instagram">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
-      <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
-      <circle cx="18" cy="6" r="1" fill="currentColor"/>
-    </svg>
-  </a>
-  <a href="https://www.youtube.com/@HookahTime_LA" class="social-link" aria-label="YouTube">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <path d="M22.54 6.42C22.421 5.945 22.179 5.51067 21.841 5.162C21.503 4.81333 21.082 4.56166 20.617 4.431C18.8418 3.91011 11.9995 3.91011 11.9995 3.91011C11.9995 3.91011 5.15719 3.91011 3.38204 4.431C2.917 4.56166 2.496 4.81333 2.158 5.162C1.82 5.51067 1.578 5.945 1.459 6.42C1.145 8.11256 0.991 9.8307 1.00001 11.552C0.988011 13.272 1.14201 14.989 1.459 16.68C1.578 17.155 1.82 17.5893 2.158 17.938C2.496 18.2867 2.917 18.5383 3.38204 18.669C5.15719 19.19 11.9995 19.19 11.9995 19.19C11.9995 19.19 18.8418 19.19 20.617 18.669C21.082 18.5383 21.503 18.2867 21.841 17.938C22.179 17.5893 22.421 17.155 22.54 16.68C22.853 14.9881 23.007 13.2707 22.999 11.551C23.011 9.830 22.857 8.113 22.54 6.42V6.42Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M9.75 15.02L15.5 11.552L9.75 8.08498V15.02Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </a>
-</div>
+            <a href="https://www.instagram.com/hookahtime_la" class="social-link" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+                <circle cx="18" cy="6" r="1" fill="currentColor"/>
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/@HookahTime_LA" class="social-link" aria-label="YouTube">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M22.54 6.42C22.421 5.945 22.179 5.51067 21.841 5.162C21.503 4.81333 21.082 4.56166 20.617 4.431C18.8418 3.91011 11.9995 3.91011 11.9995 3.91011C11.9995 3.91011 5.15719 3.91011 3.38204 4.431C2.917 4.56166 2.496 4.81333 2.158 5.162C1.82 5.51067 1.578 5.945 1.459 6.42C1.145 8.11256 0.991 9.8307 1.00001 11.552C0.988011 13.272 1.14201 14.989 1.459 16.68C1.578 17.155 1.82 17.5893 2.158 17.938C2.496 18.2867 2.917 18.5383 3.38204 18.669C5.15719 19.19 11.9995 19.19 11.9995 19.19C11.9995 19.19 18.8418 19.19 20.617 18.669C21.082 18.5383 21.503 18.2867 21.841 17.938C22.179 17.5893 22.421 17.155 22.54 16.68C22.853 14.9881 23.007 13.2707 22.999 11.551C23.011 9.830 22.857 8.113 22.54 6.42V6.42Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9.75 15.02L15.5 11.552L9.75 8.08498V15.02Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
 
       <div class="bottom-bar" data-animate data-delay="600">
         <div class="info-item">
           <span class="info-label">Location</span>
-          <span class="info-value">4716 Woodman Ave, Los Angeles, California 91423          </span>
+          <span class="info-value">4716 Woodman Ave, Los Angeles</span>
         </div>
         <div class="info-divider"></div>
         <div class="info-item">
@@ -448,7 +448,7 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 0;
+  padding: 20px 0 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -467,7 +467,7 @@ onUnmounted(() => {
 }
 
 .info-value {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.85);
   letter-spacing: 0.02em;
@@ -512,67 +512,37 @@ onUnmounted(() => {
 
 @media (max-width: 968px) {
   .hero-content {
-    padding: 50px 40px;
+    padding: 100px 40px 32px;
   }
   
   .content-grid {
     grid-template-columns: 1fr;
-    gap: 50px;
-  }
-  
-  .right-side {
-    align-items: stretch;
-  }
-  
-  .cta-group {
-    max-width: 100%;
-  }
-  
-  .bottom-bar {
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .info-divider {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-content {
-    padding: 40px 32px;
-  }
-  
-  .content-grid {
     gap: 40px;
   }
   
   .left-side {
-    gap: 30px;
+    gap: 24px;
   }
   
   .brand-name {
-    font-size: clamp(3rem, 12vw, 5rem);
-  }
-  
-  .tagline {
-    gap: 16px;
-  }
-  
-  .line {
-    width: 40px;
-  }
-  
-  .tagline-text {
-    font-size: 0.85rem;
+    font-size: clamp(3rem, 11vw, 5rem);
   }
   
   .right-side {
-    gap: 40px;
+    align-items: stretch;
+    gap: 32px;
+  }
+  
+  .cta-group {
+    max-width: 100%;
+    flex-direction: row;
+    gap: 12px;
   }
   
   .cta-link {
-    padding: 24px 28px;
+    flex: 1;
+    padding: 20px 16px;
+    gap: 12px;
   }
   
   .cta-number {
@@ -580,12 +550,81 @@ onUnmounted(() => {
     min-width: 32px;
   }
   
+  .cta-label {
+    font-size: 0.65rem;
+  }
+  
   .cta-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+  
+  .cta-arrow svg {
+    width: 24px;
+    height: 24px;
   }
   
   .social-links {
     justify-content: flex-start;
+  }
+  
+  .bottom-bar {
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px 0 0;
+  }
+  
+  .info-divider {
+    display: none;
+  }
+  
+  .info-value {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 90px 32px 28px;
+  }
+  
+  .content-grid {
+    gap: 32px;
+  }
+  
+  .left-side {
+    gap: 20px;
+  }
+  
+  .brand-name {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+  
+  .tagline {
+    gap: 12px;
+  }
+  
+  .line {
+    width: 40px;
+  }
+  
+  .tagline-text {
+    font-size: 0.8rem;
+  }
+  
+  .right-side {
+    gap: 24px;
+  }
+  
+  .cta-group {
+    gap: 10px;
+  }
+  
+  .cta-link {
+    padding: 18px 14px;
+  }
+  
+  .cta-title {
+    font-size: 0.95rem;
   }
   
   .social-link {
@@ -594,37 +633,8 @@ onUnmounted(() => {
   }
   
   .bottom-bar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-content {
-    padding: 32px 24px;
-  }
-  
-  .content-grid {
-    gap: 36px;
-  }
-  
-  .brand-name {
-    font-size: clamp(2.5rem, 13vw, 4rem);
-  }
-  
-  .tagline-text {
-    font-size: 0.75rem;
-  }
-  
-  .cta-link {
-    padding: 20px 24px;
-    gap: 16px;
-  }
-  
-  .cta-arrow svg {
-    width: 24px;
-    height: 24px;
+    gap: 12px;
+    padding: 12px 0 0;
   }
   
   .info-label {
@@ -632,11 +642,97 @@ onUnmounted(() => {
   }
   
   .info-value {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 }
 
-@media (max-height: 700px) {
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 85px 20px 24px;
+  }
+  
+  .content-grid {
+    gap: 28px;
+  }
+  
+  .left-side {
+    gap: 16px;
+  }
+  
+  .brand-name {
+    font-size: clamp(2.2rem, 13vw, 3.5rem);
+  }
+  
+  .tagline-text {
+    font-size: 0.7rem;
+  }
+  
+  .right-side {
+    gap: 20px;
+  }
+  
+  .cta-group {
+    gap: 8px;
+  }
+  
+  .cta-link {
+    padding: 16px 12px;
+    gap: 8px;
+  }
+  
+  .cta-number {
+    font-size: 0.9rem;
+    min-width: 28px;
+  }
+  
+  .cta-label {
+    font-size: 0.6rem;
+  }
+  
+  .cta-title {
+    font-size: 0.9rem;
+  }
+  
+  .cta-arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .social-link {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .bottom-bar {
+    gap: 10px;
+    padding: 10px 0 0;
+  }
+  
+  .info-label {
+    font-size: 0.6rem;
+  }
+  
+  .info-value {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-content {
+    padding: 80px 16px 20px;
+  }
+  
+  .cta-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .cta-link {
+    padding: 16px 16px;
+  }
+}
+
+@media (max-height: 700px) and (min-width: 769px) {
   .hero-content {
     padding: 40px 60px;
   }
@@ -651,6 +747,36 @@ onUnmounted(() => {
   
   .right-side {
     gap: 30px;
+  }
+}
+
+@media (max-height: 650px) and (max-width: 968px) {
+  .hero-content {
+    padding: 80px 32px 20px;
+  }
+  
+  .content-grid {
+    gap: 24px;
+  }
+  
+  .left-side {
+    gap: 16px;
+  }
+  
+  .brand-name {
+    font-size: clamp(2rem, 10vw, 3.5rem);
+  }
+  
+  .right-side {
+    gap: 20px;
+  }
+  
+  .cta-link {
+    padding: 14px 12px;
+  }
+  
+  .bottom-bar {
+    padding: 10px 0 0;
   }
 }
 
