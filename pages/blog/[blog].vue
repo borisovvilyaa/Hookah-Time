@@ -222,6 +222,190 @@
   <script setup>
   import { onMounted, onUnmounted } from 'vue'
   
+  // SEO Meta Tags
+  useHead({
+    title: 'Hookah Stem Sizes Guide: Choosing the Right Length & Diameter | Hookah Time LA',
+    meta: [
+      {
+        name: 'description',
+        content: 'Complete guide to hookah stem sizes, lengths, and diameters. Learn how stem size affects smoke quality, cooling, and draw. Expert tips for choosing miniature, medium, or long hookah stems.'
+      },
+      {
+        name: 'keywords',
+        content: 'hookah stem sizes, hookah stem length, hookah stem diameter, miniature hookah, long hookah stem, hookah parts guide, hookah diffuser, hookah shaft, best hookah stem'
+      },
+      { name: 'author', content: 'Hookah Time LA' },
+      { name: 'robots', content: 'index, follow' },
+      { name: 'article:published_time', content: '2024-11-03T10:00:00Z' },
+      { name: 'article:modified_time', content: '2024-11-03T10:00:00Z' },
+      { name: 'article:author', content: 'Hookah Time LA' },
+      { name: 'article:section', content: 'Tips & Tricks' },
+      { name: 'article:tag', content: 'Hookah Guide' },
+  
+      // Open Graph
+      {
+        property: 'og:title',
+        content: 'Hookah Stem Sizes Guide: Complete Guide to Lengths & Diameters'
+      },
+      {
+        property: 'og:description',
+        content: 'Learn everything about hookah stem sizes - from miniature to long stems. Discover how length and diameter affect smoke quality, cooling, and your smoking experience.'
+      },
+      { property: 'og:type', content: 'article' },
+      { property: 'og:url', content: 'https://hookahtimela.com/blog/hookah-stem-sizes' },
+      {
+        property: 'og:image',
+        content: 'https://worldhookahmarket.com/wp-content/uploads/2024/05/honey-sigh-osnovanie-shahty.jpg'
+      },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
+      { property: 'og:image:alt', content: 'Different hookah stem sizes and configurations' },
+      { property: 'og:site_name', content: 'Hookah Time LA' },
+  
+      // Twitter Card
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: 'Hookah Stem Sizes Guide: Choosing the Right Length & Diameter' },
+      {
+        name: 'twitter:description',
+        content: 'Complete guide to hookah stem sizes. Learn how stem length and diameter affect smoke quality, cooling, and draw resistance.'
+      },
+      {
+        name: 'twitter:image',
+        content: 'https://worldhookahmarket.com/wp-content/uploads/2024/05/honey-sigh-osnovanie-shahty.jpg'
+      }
+    ],
+    link: [
+      { rel: 'canonical', href: 'https://hookahtimela.com/blog/hookah-stem-sizes' }
+    ],
+    script: [
+      {
+        type: 'application/ld+json',
+        children: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: 'Sizes of Hookah Stems: What Are The Options?',
+          description: 'Complete guide to hookah stem sizes, lengths, and diameters. Learn how to choose the perfect hookah stem for optimal smoke quality and experience.',
+          image: {
+            '@type': 'ImageObject',
+            url: 'https://worldhookahmarket.com/wp-content/uploads/2024/05/honey-sigh-osnovanie-shahty.jpg',
+            width: 1200,
+            height: 630
+          },
+          author: {
+            '@type': 'Organization',
+            name: 'Hookah Time LA',
+            url: 'https://hookahtimela.com'
+          },
+          publisher: {
+            '@type': 'Organization',
+            name: 'Hookah Time LA',
+            logo: {
+              '@type': 'ImageObject',
+              url: 'https://hookahtimela.com/banner.jpg'
+            }
+          },
+          datePublished: '2024-11-03',
+          dateModified: '2024-11-03',
+          mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': 'https://hookahtimela.com/blog/hookah-stem-sizes'
+          },
+          articleSection: 'Tips & Tricks',
+          keywords: 'hookah stem sizes, hookah stem length, hookah stem diameter, hookah guide',
+          wordCount: 650,
+          timeRequired: 'PT8M'
+        })
+      },
+      {
+        type: 'application/ld+json',
+        children: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: 'What does the length of hookah stem affect?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'The length of the hookah stem affects how quickly smoke cools and how much effort is needed to draw it in. Stems 60-80 cm or longer provide optimal smoke cooling and filtration for the best experience.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: 'What does the diameter of hookah stem affect?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'The diameter of the stem affects airflow and draw resistance. Smaller diameters create worse airflow but brighter taste and aroma, while larger diameters provide easier draws with slightly less intense flavor.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: 'What is the best hookah stem size for beginners?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Medium-sized stems (60-80 cm) are best for beginners. They offer easy preparation, good smoke cooling, balanced draw resistance, and are portable enough for occasional transport.'
+              }
+            }
+          ]
+        })
+      },
+      {
+        type: 'application/ld+json',
+        children: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'HowTo',
+          name: 'How to Choose the Right Hookah Stem Size',
+          description: 'Step-by-step guide to selecting the perfect hookah stem based on length, diameter, and usage needs',
+          image: 'https://worldhookahmarket.com/wp-content/uploads/2024/05/honey-sigh-osnovanie-shahty.jpg',
+          step: [
+            {
+              '@type': 'HowToStep',
+              name: 'Consider stem length',
+              text: 'Choose stems 60-80 cm or longer for optimal smoke cooling. Avoid stems shorter than 50 cm as they don\'t cool smoke adequately.'
+            },
+            {
+              '@type': 'HowToStep',
+              name: 'Evaluate diameter',
+              text: 'Smaller diameters provide stronger flavor but harder draw. Larger diameters offer easier airflow with slightly less intense taste.'
+            },
+            {
+              '@type': 'HowToStep',
+              name: 'Test airtightness',
+              text: 'Cover the lower tube hole with your thumb and blow air into the bowl connector. If you cannot blow through, the stem is properly sealed.'
+            }
+          ]
+        })
+      },
+      {
+        type: 'application/ld+json',
+        children: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: 'https://hookahtimela.com/'
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Blog',
+              item: 'https://hookahtimela.com/blog'
+            },
+            {
+              '@type': 'ListItem',
+              position: 3,
+              name: 'Hookah Stem Sizes Guide',
+              item: 'https://hookahtimela.com/blog/hookah-stem-sizes'
+            }
+          ]
+        })
+      }
+    ]
+  })
+  
   let observer = null
   
   onMounted(() => {
@@ -257,8 +441,7 @@
       observer.disconnect()
     }
   })
-  </script>
-  
+  </script>  
   <style scoped>
   * {
     margin: 0;

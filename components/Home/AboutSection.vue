@@ -96,15 +96,6 @@ const advantages = [
     ])
   },
   {
-    title: 'Ladies Night Every Day',
-    description: 'Ladies get FREE refills after 6PM - every single day! Bring your squad and enjoy unlimited refills all night long.',
-    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&h=400&fit=crop',
-    icon: () => h('svg', { width: '32', height: '32', viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': '2' }, [
-      h('path', { d: 'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2' }),
-      h('circle', { cx: '12', cy: '7', r: '4' })
-    ])
-  },
-  {
     title: 'Open Late 2PM-2AM',
     description: 'Whether it\'s afternoon chill or late night vibes, we\'re here for you 12 hours every day. Guest parking available.',
     image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&h=400&fit=crop',
