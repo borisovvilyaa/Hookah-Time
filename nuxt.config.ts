@@ -1,6 +1,32 @@
 export default defineNuxtConfig({
   ssr: true,
 
+  // Добавляем preset для AWS Amplify
+  nitro: {
+    preset: 'aws-amplify',
+    minify: true,
+    compressPublicAssets: true,
+  },
+
+  // Оптимизация Vite для сборки
+  vite: {
+    build: {
+      chunkSizeWarningLimit: 1000,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              if (id.includes('bootstrap')) return 'bootstrap'
+              if (id.includes('@fortawesome')) return 'fontawesome'
+              if (id.includes('gsap')) return 'gsap'
+              return 'vendor'
+            }
+          }
+        }
+      }
+    }
+  },
+
   css: [
     'bootstrap/dist/css/bootstrap.min.css',
     '@fortawesome/fontawesome-free/css/all.css',
