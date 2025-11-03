@@ -8,7 +8,7 @@
         <!-- Logo -->
         <NuxtLink to="/" class="logo" @click="closeMobileMenu">
           <div class="logo-image">
-            <img src="~/assets/logo.png" alt="Hookah Time">
+            <img src="/logo.png" alt="Hookah Time">
           </div>
           <div class="logo-wrapper">
             <span class="logo-line">HOOKAH</span>
