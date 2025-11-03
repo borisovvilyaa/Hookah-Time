@@ -113,7 +113,6 @@
             <li class="feature-item">Expert Mix Masters</li>
             <li class="feature-item">Indoor & Outdoor Seating</li>
             <li class="feature-item">Guest Parking Available</li>
-            <li class="feature-item">Ladies Night Every Day</li>
           </ul>
         </div>
 
@@ -124,10 +123,6 @@
             <div class="hours-item">
               <span class="day">Every Day</span>
               <span class="time">2:00 PM - 2:00 AM</span>
-            </div>
-            <div class="hours-item special">
-              <span class="day">Ladies Night</span>
-              <span class="time">Free Refills After 6PM</span>
             </div>
           </div>
 
