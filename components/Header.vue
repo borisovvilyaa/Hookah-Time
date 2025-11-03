@@ -180,7 +180,7 @@ onBeforeUnmount(() => {
 }
 
 .main-header {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 1);
   backdrop-filter: blur(20px);
   padding: 20px 0;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
