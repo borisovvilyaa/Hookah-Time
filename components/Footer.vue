@@ -34,8 +34,8 @@
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
               <div class="contact-address">
-                <p class="address-line">Los Angeles, California</p>
-                <p class="address-line">Best Hookah in LA</p>
+                <p class="address-line">4716 Woodman Ave</p>
+                <p class="address-line">Los Angeles, CA 91423</p>
               </div>
             </div>
 
@@ -95,10 +95,8 @@
                   <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
                 </svg>
               </a>
-              <a href="https://www.tiktok.com/@hookahtime_la" class="social-link" aria-label="TikTok" target="_blank" rel="noopener">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                </svg>
+              <a href="https://www.yelp.com/biz/hookah-time-sherman-oaks-4" class="social-link" aria-label="Yelp" target="_blank" rel="noopener">
+                <i class="fa-brands fa-yelp"></i>
               </a>
             </div>
           </div>
@@ -131,8 +129,49 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
             </svg>
-            <span>#1 Hookah in LA</span>
+            <span>Premium Hookah in LA</span>
           </div>
+        </div>
+      </div>
+
+      <!-- Google Map Section -->
+      <div class="map-section" data-animate data-delay="400">
+        <h3 class="footer-heading map-heading">FIND US</h3>
+        <div class="map-container">
+          <div class="map-overlay">
+            <div class="map-info">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <div>
+                <p class="map-address">4716 Woodman Ave</p>
+                <p class="map-city">Sherman Oaks, CA 91423</p>
+              </div>
+            </div>
+            <a 
+              href="https://www.google.com/maps/dir/?api=1&destination=4716+Woodman+Ave+Los+Angeles+CA+91423" 
+              target="_blank" 
+              rel="noopener"
+              class="directions-btn"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+              Get Directions
+            </a>
+          </div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3302.0698974156916!2d-118.44523492369314!3d34.15128831307649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2980f6b6b6b6b%3A0x1234567890abcdef!2s4716%20Woodman%20Ave%2C%20Sherman%20Oaks%2C%20CA%2091423!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="google-map"
+          ></iframe>
         </div>
       </div>
     </div>
@@ -200,6 +239,8 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
 * {
   margin: 0;
   padding: 0;
@@ -388,6 +429,7 @@ onUnmounted(() => {
   color: rgba(255, 255, 255, 0.7);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
+  font-size: 18px;
 }
 
 .social-link:hover {
@@ -395,6 +437,12 @@ onUnmounted(() => {
   border-color: #FDB913;
   color: #FDB913;
   transform: translateY(-3px);
+}
+
+.social-link i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Features Section */
@@ -472,11 +520,6 @@ onUnmounted(() => {
   border-left-color: #FDB913;
 }
 
-.hours-item.special {
-  background: rgba(253, 185, 19, 0.05);
-  border-left-color: #FDB913;
-}
-
 .day {
   font-size: 0.85rem;
   color: #FDB913;
@@ -508,6 +551,111 @@ onUnmounted(() => {
 }
 
 .special-badge svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Map Section */
+.map-section {
+  margin-bottom: 60px;
+}
+
+.map-heading {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(253, 185, 19, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+              0 0 0 1px rgba(253, 185, 19, 0.1);
+}
+
+.google-map {
+  width: 100%;
+  height: 100%;
+  filter: grayscale(20%) brightness(0.9) contrast(1.1);
+  transition: filter 0.3s ease;
+}
+
+.map-container:hover .google-map {
+  filter: grayscale(0%) brightness(1) contrast(1);
+}
+
+.map-overlay {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  right: 24px;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(253, 185, 19, 0.3);
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.map-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.map-info svg {
+  width: 24px;
+  height: 24px;
+  color: #FDB913;
+  flex-shrink: 0;
+}
+
+.map-address {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+  letter-spacing: 0.02em;
+}
+
+.map-city {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  font-weight: 300;
+}
+
+.directions-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #FDB913 0%, #e6a500 100%);
+  color: #000000;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(253, 185, 19, 0.3);
+}
+
+.directions-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(253, 185, 19, 0.5);
+  background: linear-gradient(135deg, #ffca28 0%, #FDB913 100%);
+}
+
+.directions-btn svg {
   width: 16px;
   height: 16px;
 }
@@ -584,6 +732,21 @@ onUnmounted(() => {
   .footer-nav {
     gap: 32px;
   }
+
+  .map-container {
+    height: 400px;
+  }
+
+  .map-overlay {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .directions-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 768px) {
@@ -603,6 +766,17 @@ onUnmounted(() => {
 
   .footer-main {
     gap: 40px;
+  }
+
+  .map-container {
+    height: 350px;
+  }
+
+  .map-overlay {
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    padding: 16px;
   }
 
   .footer-bottom-container {
@@ -645,6 +819,31 @@ onUnmounted(() => {
     height: 40px;
   }
 
+  .map-container {
+    height: 300px;
+    border-radius: 12px;
+  }
+
+  .map-overlay {
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    padding: 14px;
+  }
+
+  .map-address {
+    font-size: 0.9rem;
+  }
+
+  .map-city {
+    font-size: 0.8rem;
+  }
+
+  .directions-btn {
+    font-size: 0.8rem;
+    padding: 10px 20px;
+  }
+
   .footer-badges {
     flex-wrap: wrap;
   }
@@ -665,7 +864,8 @@ onUnmounted(() => {
   .nav-link,
   .social-link,
   .feature-item,
-  .hours-item {
+  .hours-item,
+  .directions-btn {
     transition: none;
   }
 }

@@ -25,15 +25,23 @@
             </NuxtLink>
             <NuxtLink to="/#about" class="nav-link">
               <span class="nav-number">02</span>
-              <span class="nav-text">About</span>
+              <span class="nav-text">About Us</span>
+            </NuxtLink>
+            <NuxtLink to="/#why" class="nav-link">
+              <span class="nav-number">03</span>
+              <span class="nav-text">Why Choose Us</span>
+            </NuxtLink>
+            <NuxtLink to="/#blog" class="nav-link">
+              <span class="nav-number">04</span>
+              <span class="nav-text">Blog</span>
             </NuxtLink>
             <NuxtLink to="/#gallery" class="nav-link">
-              <span class="nav-number">03</span>
+              <span class="nav-number">05</span>
               <span class="nav-text">Gallery</span>
             </NuxtLink>
-            <NuxtLink to="/#contact" class="nav-link">
-              <span class="nav-number">04</span>
-              <span class="nav-text">Contact</span>
+            <NuxtLink to="/#faq" class="nav-link">
+              <span class="nav-number">06</span>
+              <span class="nav-text">FAQ</span>
             </NuxtLink>
           </div>
           
@@ -59,33 +67,49 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" :class="{ 'open': mobileMenuOpen }">
       <nav class="mobile-nav">
-        <NuxtLink to="/#menu" class="mobile-link" @click="closeMobileMenu">
+        <NuxtLink to="/#about" class="mobile-link" @click="closeMobileMenu">
           <span class="mobile-number">01</span>
+          <span class="mobile-text">About Us</span>
+          <svg class="mobile-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </NuxtLink>
+        
+        <NuxtLink to="/#menu" class="mobile-link" @click="closeMobileMenu">
+          <span class="mobile-number">02</span>
           <span class="mobile-text">Menu</span>
           <svg class="mobile-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </NuxtLink>
         
-        <NuxtLink to="/#about" class="mobile-link" @click="closeMobileMenu">
-          <span class="mobile-number">02</span>
-          <span class="mobile-text">About</span>
+        <NuxtLink to="/#why" class="mobile-link" @click="closeMobileMenu">
+          <span class="mobile-number">03</span>
+          <span class="mobile-text">Why Choose Us</span>
+          <svg class="mobile-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </NuxtLink>
+        
+        <NuxtLink to="/#blog" class="mobile-link" @click="closeMobileMenu">
+          <span class="mobile-number">04</span>
+          <span class="mobile-text">Blog</span>
           <svg class="mobile-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </NuxtLink>
         
         <NuxtLink to="/#gallery" class="mobile-link" @click="closeMobileMenu">
-          <span class="mobile-number">03</span>
+          <span class="mobile-number">05</span>
           <span class="mobile-text">Gallery</span>
           <svg class="mobile-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </NuxtLink>
         
-        <NuxtLink to="/#contact" class="mobile-link" @click="closeMobileMenu">
-          <span class="mobile-number">04</span>
-          <span class="mobile-text">Contact</span>
+        <NuxtLink to="/#faq" class="mobile-link" @click="closeMobileMenu">
+          <span class="mobile-number">06</span>
+          <span class="mobile-text">FAQ</span>
           <svg class="mobile-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -281,26 +305,26 @@ onBeforeUnmount(() => {
 .desktop-nav {
   display: flex;
   align-items: center;
-  gap: 60px;
+  gap: 40px;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 48px;
+  gap: 32px;
 }
 
 .nav-link {
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   position: relative;
   transition: all 0.3s ease;
 }
 
 .nav-number {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: rgba(253, 185, 19, 0.5);
   font-family: monospace;
@@ -308,12 +332,13 @@ onBeforeUnmount(() => {
 }
 
 .nav-text {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.8);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .nav-link::after {
@@ -393,7 +418,9 @@ onBeforeUnmount(() => {
   border: none;
   cursor: pointer;
   padding: 8px;
-  position: relative;
+  position: fixed;
+  right: 40px;
+  top: 28px;
   z-index: 1010;
 }
 
@@ -623,17 +650,40 @@ onBeforeUnmount(() => {
 }
 
 /* Responsive */
+@media (max-width: 1400px) {
+  .nav-links {
+    gap: 24px;
+  }
+  
+  .nav-text {
+    font-size: 0.85rem;
+  }
+  
+  .desktop-nav {
+    gap: 32px;
+  }
+}
+
 @media (max-width: 1200px) {
   .header-container {
     padding: 0 60px;
   }
   
   .nav-links {
-    gap: 36px;
+    gap: 20px;
+  }
+  
+  .nav-text {
+    font-size: 0.8rem;
   }
   
   .desktop-nav {
-    gap: 48px;
+    gap: 24px;
+  }
+  
+  .book-btn {
+    padding: 12px 20px;
+    font-size: 0.85rem;
   }
 }
 
@@ -667,6 +717,11 @@ onBeforeUnmount(() => {
 
   .logo-accent {
     font-size: 1rem;
+  }
+  
+  .menu-toggle {
+    right: 32px;
+    top: 24px;
   }
   
   .mobile-menu {
@@ -714,6 +769,11 @@ onBeforeUnmount(() => {
 
   .logo-accent {
     font-size: 0.9rem;
+  }
+  
+  .menu-toggle {
+    right: 24px;
+    top: 22px;
   }
   
   .mobile-nav {

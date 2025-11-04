@@ -15,7 +15,7 @@
         
         <p class="blog-subtitle">
           Stay updated with hookah culture, flavor reviews, events, and insider tips 
-          from LA's #1 hookah lounge
+          from LA's Premium hookah lounge
         </p>
       </div>
 
@@ -83,7 +83,7 @@
       </div>
 
       <!-- Newsletter CTA -->
-      <div class="newsletter-section" data-animate data-delay="500">
+      <!-- <div class="newsletter-section" data-animate data-delay="500">
         <div class="newsletter-content">
           <div class="newsletter-icon">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
@@ -114,7 +114,7 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </section>
 </template>

@@ -58,21 +58,21 @@
             </div>
             
             <div class="cta-actions">
-              <button class="cta-button primary">
-                <span>Book a Table</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
-              <button class="cta-button secondary">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
-                  <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/>
-                  <path d="M21 15L16 10L5 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span>View All Photos</span>
-              </button>
-            </div>
+  <a href="tel:+14244240044" class="cta-button primary">
+    <span>Book a Table</span>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+  <a href="https://www.instagram.com/hookahtime_la" target="_blank" rel="noopener noreferrer" class="cta-button secondary">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+      <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/>
+      <path d="M21 15L16 10L5 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>View All Photos</span>
+  </a>
+</div>
           </div>
         </div>
       </div>
@@ -525,6 +525,7 @@
     position: relative;
     overflow: hidden;
     border: none;
+    text-decoration: none;
   }
   
   .cta-button.primary {

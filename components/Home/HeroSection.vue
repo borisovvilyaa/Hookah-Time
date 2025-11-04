@@ -60,17 +60,13 @@
 
           <div class="social-links" data-animate data-delay="400">
             <a href="https://www.instagram.com/hookahtime_la" class="social-link" aria-label="Instagram">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
-                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
-                <circle cx="18" cy="6" r="1" fill="currentColor"/>
-              </svg>
+              <i class="fa-brands fa-instagram"></i>
             </a>
             <a href="https://www.youtube.com/@HookahTime_LA" class="social-link" aria-label="YouTube">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M22.54 6.42C22.421 5.945 22.179 5.51067 21.841 5.162C21.503 4.81333 21.082 4.56166 20.617 4.431C18.8418 3.91011 11.9995 3.91011 11.9995 3.91011C11.9995 3.91011 5.15719 3.91011 3.38204 4.431C2.917 4.56166 2.496 4.81333 2.158 5.162C1.82 5.51067 1.578 5.945 1.459 6.42C1.145 8.11256 0.991 9.8307 1.00001 11.552C0.988011 13.272 1.14201 14.989 1.459 16.68C1.578 17.155 1.82 17.5893 2.158 17.938C2.496 18.2867 2.917 18.5383 3.38204 18.669C5.15719 19.19 11.9995 19.19 11.9995 19.19C11.9995 19.19 18.8418 19.19 20.617 18.669C21.082 18.5383 21.503 18.2867 21.841 17.938C22.179 17.5893 22.421 17.155 22.54 16.68C22.853 14.9881 23.007 13.2707 22.999 11.551C23.011 9.830 22.857 8.113 22.54 6.42V6.42Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M9.75 15.02L15.5 11.552L9.75 8.08498V15.02Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a href="https://www.yelp.com/biz/hookah-time-sherman-oaks-4" class="social-link" aria-label="YouTube">
+              <i class="fa-brands fa-yelp"></i>
             </a>
           </div>
         </div>

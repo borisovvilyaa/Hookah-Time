@@ -12,8 +12,8 @@
       />
       <HeroSection />
     </div>
+    <Menu />
     <ServicesSection />
-    <CarsList />
     <AboutSection />
     <Blog />
     <Gallery />
@@ -27,7 +27,7 @@ import { useHead, useSeoMeta } from '@unhead/vue';
 import HeroSection from '~/components/Home/HeroSection.vue';
 import CtaSection from '~/components/Home/CtaSection.vue';
 import ServicesSection from '~/components/Home/ServicesSection.vue';
-import CarsList from '~/components/Home/CarsList.vue';
+import Menu from '~/components/Home/Menu.vue';
 import Blog from '~/components/Home/Blog.vue';
 import Gallery from '~/components/Home/Gallery.vue';
 

@@ -71,7 +71,7 @@
                 <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89317 18.7122 8.75608 18.1676 9.45768C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <h3 class="feature-title">#1 Service in LA</h3>
+            <h3 class="feature-title">Premium Service in LA</h3>
             <p class="feature-text">Highest attention to the smallest details — that's why we're the most popular place in LA</p>
           </div>
 
@@ -135,7 +135,7 @@
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <div class="stat-number">#1</div>
+          <div class="stat-number">Premium</div>
           <div class="stat-label">Service in LA</div>
         </div>
         <div class="stat-divider"></div>
