@@ -32,13 +32,19 @@
               :key="bowl.name"
               class="menu-item"
               :class="{ 'highlight-item': bowl.highlight }"
+              @click="bowl.flavors ? openModal(bowl) : null"
             >
               <div class="item-content">
                 <h4 class="item-name">{{ bowl.name }}</h4>
-                <div v-if="bowl.flavors" class="flavors-tooltip">
-                  {{ bowl.flavors }}
-                </div>
                 <p v-if="bowl.description" class="item-description">{{ bowl.description }}</p>
+                <button 
+                  v-if="bowl.flavors" 
+                  class="view-flavors-btn"
+                  @click.stop="openModal(bowl)"
+                  type="button"
+                >
+                  View Flavors
+                </button>
               </div>
               <div class="item-prices">
                 <span class="price">{{ bowl.cashPrice }}</span>
@@ -67,12 +73,18 @@
                 v-for="drink in drinks" 
                 :key="drink.name"
                 class="menu-item"
+                @click="drink.variants ? openModal(drink) : null"
               >
                 <div class="item-content">
                   <h4 class="item-name">{{ drink.name }}</h4>
-                  <div v-if="drink.variants" class="flavors-tooltip">
-                    {{ drink.variants }}
-                  </div>
+                  <button 
+                    v-if="drink.variants" 
+                    class="view-flavors-btn"
+                    @click.stop="openModal(drink)"
+                    type="button"
+                  >
+                    View Variants
+                  </button>
                 </div>
                 <div class="item-prices">
                   <span class="price">{{ drink.cashPrice }}</span>
@@ -97,12 +109,18 @@
                 v-for="snack in snacks" 
                 :key="snack.name"
                 class="menu-item"
+                @click="snack.variants ? openModal(snack) : null"
               >
                 <div class="item-content">
                   <h4 class="item-name">{{ snack.name }}</h4>
-                  <div v-if="snack.variants" class="flavors-tooltip">
-                    {{ snack.variants }}
-                  </div>
+                  <button 
+                    v-if="snack.variants" 
+                    class="view-flavors-btn"
+                    @click.stop="openModal(snack)"
+                    type="button"
+                  >
+                    View Variants
+                  </button>
                 </div>
                 <div class="item-prices">
                   <span class="price">{{ snack.cashPrice }}</span>
@@ -119,11 +137,46 @@
         <div class="footer-badge">TAXES EXCLUDED</div>
       </div>
     </div>
+
+    <!-- Modal -->
+    <GenericModal
+      :isVisible="modalVisible"
+      :title="modalTitle"
+      :actions="modalActions"
+      @close="closeModal"
+    >
+      <div class="modal-flavors">
+        {{ modalContent }}
+      </div>
+    </GenericModal>
   </section>
 </template>
 
 <script setup>
-import { onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
+import GenericModal from '../GenericModal.vue'
+
+const modalVisible = ref(false)
+const modalTitle = ref('')
+const modalContent = ref('')
+
+const modalActions = [
+  {
+    label: 'Close',
+    className: 'close-modal-btn',
+    handler: () => closeModal()
+  }
+]
+
+const openModal = (item) => {
+  modalTitle.value = item.name
+  modalContent.value = item.flavors || item.variants
+  modalVisible.value = true
+}
+
+const closeModal = () => {
+  modalVisible.value = false
+}
 
 const hookahBowls = [
   {
@@ -417,6 +470,7 @@ onUnmounted(() => {
   border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 48px;
   backdrop-filter: blur(20px);
+  border-radius: 8px;
 }
 
 .section-header {
@@ -472,6 +526,7 @@ onUnmounted(() => {
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
+  border-radius: 4px;
 }
 
 .menu-item:last-child {
@@ -507,6 +562,7 @@ onUnmounted(() => {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   transition: color 0.3s ease;
+  margin-bottom: 8px;
 }
 
 .menu-item:hover .item-name {
@@ -521,48 +577,24 @@ onUnmounted(() => {
   margin-top: 6px;
 }
 
-/* Flavors Tooltip */
-.flavors-tooltip {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  margin-top: 12px;
-  padding: 16px 20px;
-  background: rgba(0, 0, 0, 0.95);
+.view-flavors-btn {
+  margin-top: 8px;
+  padding: 6px 16px;
+  background: rgba(253, 185, 19, 0.1);
   border: 1px solid rgba(253, 185, 19, 0.3);
-  border-radius: 8px;
-  font-size: 0.85rem;
-  font-weight: 400;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 10;
-  pointer-events: none;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(20px);
+  color: #FDB913;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
 }
 
-.flavors-tooltip::before {
-  content: '';
-  position: absolute;
-  top: -6px;
-  left: 20px;
-  width: 12px;
-  height: 12px;
-  background: rgba(0, 0, 0, 0.95);
-  border-left: 1px solid rgba(253, 185, 19, 0.3);
-  border-top: 1px solid rgba(253, 185, 19, 0.3);
-  transform: rotate(45deg);
-}
-
-.menu-item:hover .flavors-tooltip {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+.view-flavors-btn:hover {
+  background: rgba(253, 185, 19, 0.2);
+  border-color: #FDB913;
 }
 
 .item-prices {
@@ -613,6 +645,26 @@ onUnmounted(() => {
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
+  border-radius: 4px;
+}
+
+/* Modal Styles */
+.modal-flavors {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #666;
+}
+
+:deep(.close-modal-btn) {
+  background: #FDB913;
+  color: #000;
+  border: 1px solid #FDB913;
+  font-weight: 600;
+}
+
+:deep(.close-modal-btn:hover) {
+  background: #ffdd55;
+  border-color: #ffdd55;
 }
 
 /* Animations */
@@ -671,7 +723,7 @@ onUnmounted(() => {
 
 @media (max-width: 768px) {
   .menu {
-    padding: 60px 32px;
+    padding: 60px 24px;
   }
   
   .menu-header {
@@ -683,61 +735,81 @@ onUnmounted(() => {
   }
   
   .menu-section {
-    padding: 32px 24px;
+    padding: 32px 20px;
   }
   
   .section-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+  }
+  
+  .section-title {
+    font-size: 1.4rem;
   }
   
   .price-headers {
     align-self: flex-end;
+    gap: 24px;
   }
   
   .menu-item {
-    padding: 12px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
   }
   
   .menu-item:hover {
-    padding-left: 24px;
+    padding-left: 16px;
+    border-left: none;
+    border-bottom: 3px solid rgba(253, 185, 19, 0.6);
   }
   
-  .flavors-tooltip {
-    position: relative;
-    margin-top: 8px;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    font-size: 0.75rem;
-    padding: 12px 16px;
-  }
-  
-  .flavors-tooltip::before {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .menu {
-    padding: 50px 24px;
-  }
-  
-  .menu-section {
-    padding: 24px 20px;
-  }
-  
-  .section-title {
-    font-size: 1.25rem;
-  }
-  
-  .price-headers {
-    gap: 24px;
+  .item-content {
+    width: 100%;
   }
   
   .item-prices {
+    width: 100%;
+    justify-content: flex-end;
     gap: 24px;
+  }
+  
+  .view-flavors-btn {
+    display: inline-block;
+  }
+}
+
+@media (max-width: 640px) {
+  .menu {
+    padding: 50px 20px;
+  }
+  
+  .label-text {
+    font-size: 0.75rem;
+  }
+  
+  .label-line {
+    width: 40px;
+  }
+  
+  .menu-section {
+    padding: 24px 16px;
+  }
+  
+  .section-title {
+    font-size: 1.2rem;
+  }
+  
+  .price-headers {
+    gap: 20px;
+  }
+  
+  .item-prices {
+    gap: 20px;
   }
   
   .price {
@@ -754,9 +826,139 @@ onUnmounted(() => {
     font-size: 0.95rem;
   }
   
+  .item-description {
+    font-size: 0.8rem;
+  }
+  
+  .view-flavors-btn {
+    font-size: 0.7rem;
+    padding: 5px 12px;
+  }
+  
   .footer-badge {
-    padding: 12px 32px;
+    padding: 12px 24px;
+    font-size: 0.85rem;
+  }
+  
+  .section-note {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu {
+    padding: 40px 16px;
+  }
+  
+  .menu-header {
+    margin-bottom: 40px;
+  }
+  
+  .section-label {
+    gap: 12px;
+  }
+  
+  .menu-grid {
+    gap: 40px;
+  }
+  
+  .menu-secondary {
+    gap: 40px;
+  }
+  
+  .menu-section {
+    padding: 20px 12px;
+  }
+  
+  .section-header {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .section-title {
+    font-size: 1.1rem;
+  }
+  
+  .menu-items {
+    gap: 12px;
+  }
+  
+  .menu-items.compact {
+    gap: 10px;
+  }
+  
+  .menu-item {
+    padding: 12px;
+    gap: 12px;
+  }
+  
+  .item-name {
     font-size: 0.9rem;
+    margin-bottom: 6px;
+  }
+  
+  .price-headers {
+    gap: 16px;
+  }
+  
+  .item-prices {
+    gap: 16px;
+  }
+  
+  .price {
+    font-size: 1rem;
+    min-width: 40px;
+  }
+  
+  .price-label {
+    font-size: 0.7rem;
+    min-width: 40px;
+  }
+  
+  .footer-badge {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+  }
+  
+  .menu-footer {
+    margin-top: 60px;
+    padding-top: 30px;
+  }
+}
+
+@media (max-width: 360px) {
+  .menu {
+    padding: 30px 12px;
+  }
+  
+  .menu-section {
+    padding: 16px 10px;
+  }
+  
+  .section-title {
+    font-size: 1rem;
+  }
+  
+  .item-name {
+    font-size: 0.85rem;
+  }
+  
+  .price {
+    font-size: 0.95rem;
+    min-width: 35px;
+  }
+  
+  .price-label {
+    font-size: 0.65rem;
+    min-width: 35px;
+  }
+  
+  .price-headers {
+    gap: 12px;
+  }
+  
+  .item-prices {
+    gap: 12px;
   }
 }
 
@@ -772,8 +974,8 @@ onUnmounted(() => {
   }
   
   .menu-item,
-  .flavors-tooltip,
-  .price {
+  .price,
+  .view-flavors-btn {
     transition: none;
   }
 }

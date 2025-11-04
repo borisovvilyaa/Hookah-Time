@@ -1,154 +1,170 @@
 <template>
-  <div class="menu-container" :class="{ 'menu-scrolled': hasScrolled, 'home-page': isHomePage }">
+  <div class="menu-wrapper">
     <!-- Overlay for mobile menu -->
-    <div class="overlay" :class="{ 'active': mobileMenuOpen }" @click="closeMobileMenu"></div>
+    <div 
+      class="menu-overlay" 
+      :class="{ 'is-visible': mobileMenuOpen }" 
+      @click="closeMobileMenu"
+    ></div>
 
-    <header class="main-header">
-      <div class="header-container">
+    <!-- Main Header -->
+    <header 
+      class="site-header" 
+      :class="{ 
+        'is-scrolled': hasScrolled, 
+        'is-home': isHomePage 
+      }"
+    >
+      <div class="header-inner">
         <!-- Logo -->
-        <NuxtLink to="/" class="logo" @click="closeMobileMenu">
-          <div class="logo-image">
+        <NuxtLink to="/" class="site-logo" @click="closeMobileMenu">
+          <div class="logo-icon">
             <img src="/logo.png" alt="Hookah Time">
           </div>
-          <div class="logo-wrapper">
-            <span class="logo-line">HOOKAH</span>
-            <span class="logo-line logo-accent">TIME</span>
+          <div class="logo-text">
+            <span class="logo-top">HOOKAH</span>
+            <span class="logo-bottom">TIME</span>
           </div>
         </NuxtLink>
 
         <!-- Desktop Navigation -->
-        <nav class="desktop-nav">
-          <div class="nav-links">
-            <NuxtLink to="/#menu" class="nav-link">
-              <span class="nav-number">01</span>
-              <span class="nav-text">Menu</span>
+        <nav class="nav-desktop">
+          <div class="nav-items">
+            <NuxtLink to="/#menu" class="nav-item">
+              <span class="nav-num">01</span>
+              <span class="nav-label">Menu</span>
             </NuxtLink>
-            <NuxtLink to="/#about" class="nav-link">
-              <span class="nav-number">02</span>
-              <span class="nav-text">About Us</span>
+            <NuxtLink to="/#about" class="nav-item">
+              <span class="nav-num">02</span>
+              <span class="nav-label">About Us</span>
             </NuxtLink>
-            <NuxtLink to="/#why" class="nav-link">
-              <span class="nav-number">03</span>
-              <span class="nav-text">Why Choose Us</span>
+            <NuxtLink to="/#why" class="nav-item">
+              <span class="nav-num">03</span>
+              <span class="nav-label">Why Choose Us</span>
             </NuxtLink>
-            <NuxtLink to="/#blog" class="nav-link">
-              <span class="nav-number">04</span>
-              <span class="nav-text">Blog</span>
+            <NuxtLink to="/#blog" class="nav-item">
+              <span class="nav-num">04</span>
+              <span class="nav-label">Blog</span>
             </NuxtLink>
-            <NuxtLink to="/#gallery" class="nav-link">
-              <span class="nav-number">05</span>
-              <span class="nav-text">Gallery</span>
+            <NuxtLink to="/#gallery" class="nav-item">
+              <span class="nav-num">05</span>
+              <span class="nav-label">Gallery</span>
             </NuxtLink>
-            <NuxtLink to="/#faq" class="nav-link">
-              <span class="nav-number">06</span>
-              <span class="nav-text">FAQ</span>
+            <NuxtLink to="/#faq" class="nav-item">
+              <span class="nav-num">06</span>
+              <span class="nav-label">FAQ</span>
             </NuxtLink>
           </div>
           
-          <a href="tel:+13234567890" class="book-btn">
-            <span class="btn-text">Reserve</span>
-            <svg class="btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <a href="tel:+14244240044" class="btn-reserve">
+            <span>Reserve</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
         </nav>
 
-        <!-- Mobile Menu Toggle -->
-        <button class="menu-toggle" @click="toggleMobileMenu" aria-label="Menu">
-          <div class="hamburger" :class="{ 'open': mobileMenuOpen }">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+        <!-- Mobile Menu Button - FIXED POSITION -->
+        <button 
+          class="menu-btn" 
+          :class="{ 'is-open': mobileMenuOpen }"
+          @click="toggleMobileMenu" 
+          aria-label="Toggle Menu"
+        >
+          <span class="menu-btn-line"></span>
+          <span class="menu-btn-line"></span>
+          <span class="menu-btn-line"></span>
         </button>
       </div>
     </header>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu" :class="{ 'open': mobileMenuOpen }">
-      <nav class="mobile-nav">
-        <NuxtLink to="/#about" class="mobile-link" @click="closeMobileMenu">
-          <span class="mobile-number">01</span>
-          <span class="mobile-text">About Us</span>
-          <svg class="mobile-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </NuxtLink>
-        
-        <NuxtLink to="/#menu" class="mobile-link" @click="closeMobileMenu">
-          <span class="mobile-number">02</span>
-          <span class="mobile-text">Menu</span>
-          <svg class="mobile-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </NuxtLink>
-        
-        <NuxtLink to="/#why" class="mobile-link" @click="closeMobileMenu">
-          <span class="mobile-number">03</span>
-          <span class="mobile-text">Why Choose Us</span>
-          <svg class="mobile-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </NuxtLink>
-        
-        <NuxtLink to="/#blog" class="mobile-link" @click="closeMobileMenu">
-          <span class="mobile-number">04</span>
-          <span class="mobile-text">Blog</span>
-          <svg class="mobile-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </NuxtLink>
-        
-        <NuxtLink to="/#gallery" class="mobile-link" @click="closeMobileMenu">
-          <span class="mobile-number">05</span>
-          <span class="mobile-text">Gallery</span>
-          <svg class="mobile-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </NuxtLink>
-        
-        <NuxtLink to="/#faq" class="mobile-link" @click="closeMobileMenu">
-          <span class="mobile-number">06</span>
-          <span class="mobile-text">FAQ</span>
-          <svg class="mobile-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </NuxtLink>
-        
-        <a href="tel:+13234567890" class="mobile-book" @click="closeMobileMenu">
-          <span>Reserve Table</span>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </nav>
-      
-      <div class="mobile-footer">
-        <div class="mobile-contact">
-          <span class="contact-label">Call Us</span>
-          <a href="tel:+13234567890" class="contact-value">+1 (323) 456-7890</a>
-        </div>
-        <div class="mobile-social">
-          <a href="#" class="social-icon" aria-label="Instagram">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
-              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
-              <circle cx="18" cy="6" r="1" fill="currentColor"/>
+    <aside class="nav-mobile" :class="{ 'is-open': mobileMenuOpen }">
+      <div class="nav-mobile-content">
+        <nav class="nav-mobile-items">
+          <NuxtLink to="/#about" class="nav-mobile-item" @click="closeMobileMenu">
+            <span class="nav-mobile-num">01</span>
+            <span class="nav-mobile-label">About Us</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </NuxtLink>
+          
+          <NuxtLink to="/#menu" class="nav-mobile-item" @click="closeMobileMenu">
+            <span class="nav-mobile-num">02</span>
+            <span class="nav-mobile-label">Menu</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </NuxtLink>
+          
+          <NuxtLink to="/#why" class="nav-mobile-item" @click="closeMobileMenu">
+            <span class="nav-mobile-num">03</span>
+            <span class="nav-mobile-label">Why Choose Us</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </NuxtLink>
+          
+          <NuxtLink to="/#blog" class="nav-mobile-item" @click="closeMobileMenu">
+            <span class="nav-mobile-num">04</span>
+            <span class="nav-mobile-label">Blog</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </NuxtLink>
+          
+          <NuxtLink to="/#gallery" class="nav-mobile-item" @click="closeMobileMenu">
+            <span class="nav-mobile-num">05</span>
+            <span class="nav-mobile-label">Gallery</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </NuxtLink>
+          
+          <NuxtLink to="/#faq" class="nav-mobile-item" @click="closeMobileMenu">
+            <span class="nav-mobile-num">06</span>
+            <span class="nav-mobile-label">FAQ</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </NuxtLink>
+          
+          <a href="tel:+14244240044" class="btn-reserve-mobile" @click="closeMobileMenu">
+            <span>Reserve Table</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
-          <a href="#" class="social-icon" aria-label="Facebook">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <a href="#" class="social-icon" aria-label="Twitter">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M23 3C22.0424 3.67548 20.9821 4.19211 19.86 4.53C19.2577 3.83751 18.4573 3.34669 17.567 3.12393C16.6767 2.90116 15.7395 2.95718 14.8821 3.28445C14.0247 3.61173 13.2884 4.1944 12.773 4.95372C12.2575 5.71303 11.9877 6.61234 12 7.53V8.53C10.2426 8.57557 8.50127 8.18581 6.93101 7.39545C5.36074 6.60508 4.01032 5.43864 3 4C3 4 -1 13 8 17C5.94053 18.398 3.48716 19.0989 1 19C10 24 21 19 21 7.5C20.9991 7.22145 20.9723 6.94359 20.92 6.67C21.9406 5.66349 22.6608 4.39271 23 3V3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+        </nav>
+        
+        <div class="nav-mobile-footer">
+          <div class="mobile-contact-info">
+            <span class="contact-title">Call Us</span>
+            <a href="tel:+14244240044" class="contact-phone">+1 (424) 424-0044</a>
+          </div>
+          <div class="mobile-social-links">
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+                <circle cx="18" cy="6" r="1" fill="currentColor"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Twitter">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M23 3C22.0424 3.67548 20.9821 4.19211 19.86 4.53C19.2577 3.83751 18.4573 3.34669 17.567 3.12393C16.6767 2.90116 15.7395 2.95718 14.8821 3.28445C14.0247 3.61173 13.2884 4.1944 12.773 4.95372C12.2575 5.71303 11.9877 6.61234 12 7.53V8.53C10.2426 8.57557 8.50127 8.18581 6.93101 7.39545C5.36074 6.60508 4.01032 5.43864 3 4C3 4 -1 13 8 17C5.94053 18.398 3.48716 19.0989 1 19C10 24 21 19 21 7.5C20.9991 7.22145 20.9723 6.94359 20.92 6.67C21.9406 5.66349 22.6608 4.39271 23 3V3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    </aside>
   </div>
 </template>
 
@@ -164,7 +180,13 @@ const isHomePage = computed(() => route.path === '/');
 
 const toggleMobileMenu = () => {
   mobileMenuOpen.value = !mobileMenuOpen.value;
-  document.body.style.overflow = mobileMenuOpen.value ? 'hidden' : '';
+  
+  // Prevent body scroll when menu is open
+  if (mobileMenuOpen.value) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
 };
 
 const closeMobileMenu = () => {
@@ -173,7 +195,7 @@ const closeMobileMenu = () => {
 };
 
 const handleScroll = () => {
-  hasScrolled.value = window.scrollY > 20;
+  hasScrolled.value = window.scrollY > 50;
 };
 
 onMounted(() => {
@@ -188,50 +210,54 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
+/* Reset */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-.menu-container {
-  position: sticky;
+/* Main Wrapper */
+.menu-wrapper {
+  position: relative;
+  width: 100%;
+  z-index: 9999;
+}
+
+/* Header */
+.site-header {
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
   width: 100%;
-}
-
-.main-header {
-  background: rgba(0, 0, 0, 1);
+  background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(20px);
   padding: 20px 0;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border-bottom: 1px solid rgba(253, 185, 19, 0.15);
+  z-index: 9990;
 }
 
-.home-page {
-  position: fixed !important;
-}
-
-.home-page .main-header {
+/* Home page transparent header */
+.site-header.is-home {
   background: transparent;
   backdrop-filter: none;
   border-bottom: 1px solid transparent;
 }
 
-.home-page.menu-scrolled .main-header {
+.site-header.is-home.is-scrolled {
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(253, 185, 19, 0.2);
 }
 
-.menu-scrolled .main-header {
+.site-header.is-scrolled {
   padding: 16px 0;
 }
 
-.header-container {
+.header-inner {
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 80px;
   display: flex;
@@ -239,132 +265,128 @@ onBeforeUnmount(() => {
   align-items: center;
 }
 
-.logo {
-  text-decoration: none;
-  position: relative;
-  z-index: 1010;
+/* Logo */
+.site-logo {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 16px;
-  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+  z-index: 9995;
+  transition: transform 0.3s ease;
 }
 
-.logo-image {
-  width: 46px;
+.site-logo:hover {
+  transform: scale(1.02);
+}
+
+.logo-icon {
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   filter: drop-shadow(0 0 12px rgba(253, 185, 19, 0.3));
+  transition: filter 0.3s ease;
 }
 
-.logo-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.logo:hover .logo-image {
-  transform: scale(1.08) rotate(3deg);
+.site-logo:hover .logo-icon {
   filter: drop-shadow(0 0 20px rgba(253, 185, 19, 0.5));
 }
 
-.logo:hover .logo-image img {
-  filter: brightness(1.1);
+.logo-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
-.logo-wrapper {
+.logo-text {
   display: flex;
   flex-direction: column;
   line-height: 1;
   gap: 2px;
 }
 
-.logo-line {
+.logo-top,
+.logo-bottom {
   font-size: 1.1rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.95);
-  transition: all 0.3s ease;
   text-shadow: 0 0 20px rgba(253, 185, 19, 0.2);
+  transition: all 0.3s ease;
 }
 
-.logo-accent {
+.logo-bottom {
   color: #FDB913;
   font-size: 1.15rem;
   text-shadow: 0 0 30px rgba(253, 185, 19, 0.4);
 }
 
-.logo:hover .logo-line {
-  letter-spacing: 0.16em;
-}
-
-.desktop-nav {
+/* Desktop Navigation */
+.nav-desktop {
   display: flex;
   align-items: center;
   gap: 40px;
 }
 
-.nav-links {
+.nav-items {
   display: flex;
   align-items: center;
   gap: 32px;
 }
 
-.nav-link {
-  text-decoration: none;
+.nav-item {
   display: flex;
   align-items: center;
   gap: 10px;
+  text-decoration: none;
   position: relative;
+  padding: 8px 0;
   transition: all 0.3s ease;
 }
 
-.nav-number {
+.nav-num {
   font-size: 0.7rem;
   font-weight: 600;
   color: rgba(253, 185, 19, 0.5);
-  font-family: monospace;
-  transition: all 0.3s ease;
+  font-family: 'Courier New', monospace;
+  transition: color 0.3s ease;
 }
 
-.nav-text {
+.nav-label {
   font-size: 0.9rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.8);
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
   white-space: nowrap;
 }
 
-.nav-link::after {
+.nav-item::after {
   content: '';
   position: absolute;
-  bottom: -8px;
+  bottom: 0;
   left: 0;
   width: 0;
-  height: 1px;
+  height: 2px;
   background: #FDB913;
-  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-link:hover .nav-number {
-  color: #FDB913;
-}
-
-.nav-link:hover .nav-text {
-  color: #FDB913;
-}
-
-.nav-link:hover::after {
+.nav-item:hover::after {
   width: 100%;
 }
 
-.book-btn {
+.nav-item:hover .nav-num,
+.nav-item:hover .nav-label {
+  color: #FDB913;
+}
+
+/* Reserve Button */
+.btn-reserve {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -376,14 +398,13 @@ onBeforeUnmount(() => {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 14px 28px;
-  border-radius: 0;
-  border: 2px solid transparent;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 2px solid #FDB913;
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 
-.book-btn::before {
+.btn-reserve::before {
   content: '';
   position: absolute;
   top: 0;
@@ -391,107 +412,135 @@ onBeforeUnmount(() => {
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transition: left 0.5s;
+  transition: left 0.5s ease;
 }
 
-.book-btn:hover::before {
+.btn-reserve:hover::before {
   left: 100%;
 }
 
-.book-btn:hover {
+.btn-reserve:hover {
   background: #ffcc33;
+  border-color: #ffcc33;
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(253, 185, 19, 0.4);
 }
 
-.btn-arrow {
+.btn-reserve svg {
   transition: transform 0.3s ease;
 }
 
-.book-btn:hover .btn-arrow {
+.btn-reserve:hover svg {
   transform: translateX(4px);
 }
 
-.menu-toggle {
+/* Mobile Menu Button - CRITICAL FIX */
+.menu-btn {
   display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
   position: fixed;
   right: 40px;
   top: 28px;
-  z-index: 1010;
-}
-
-.hamburger {
-  width: 28px;
-  height: 22px;
-  display: flex;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10000; /* Higher than everything */
+  padding: 10px;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
 }
 
-.hamburger span {
+.menu-btn-line {
   display: block;
-  width: 100%;
+  width: 28px;
   height: 2px;
   background: #FDB913;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
 }
 
-.hamburger.open span:nth-child(1) {
-  transform: translateY(10px) rotate(45deg);
+.menu-btn.is-open .menu-btn-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
 }
 
-.hamburger.open span:nth-child(2) {
+.menu-btn.is-open .menu-btn-line:nth-child(2) {
   opacity: 0;
   transform: translateX(-20px);
 }
 
-.hamburger.open span:nth-child(3) {
-  transform: translateY(-10px) rotate(-45deg);
+.menu-btn.is-open .menu-btn-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
-.mobile-menu {
+/* Overlay */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  z-index: 9980;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.menu-overlay.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Mobile Menu */
+.nav-mobile {
   position: fixed;
   right: -100%;
   top: 0;
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
   height: 100vh;
   background: #000000;
   border-left: 1px solid rgba(253, 185, 19, 0.2);
-  z-index: 1005;
-  transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  display: flex;
-  flex-direction: column;
+  z-index: 9985;
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: auto;
 }
 
-.mobile-menu.open {
+.nav-mobile.is-open {
   right: 0;
 }
 
-.mobile-nav {
+.nav-mobile-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.nav-mobile-items {
   display: flex;
   flex-direction: column;
   padding: 120px 40px 40px;
   flex: 1;
 }
 
-.mobile-link {
+.nav-mobile-item {
   display: flex;
   align-items: center;
   gap: 20px;
   text-decoration: none;
   padding: 24px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.3s ease;
   position: relative;
+  transition: all 0.3s ease;
 }
 
-.mobile-link::before {
+.nav-mobile-item::before {
   content: '';
   position: absolute;
   left: -40px;
@@ -500,23 +549,23 @@ onBeforeUnmount(() => {
   height: 100%;
   background: #FDB913;
   transform: scaleY(0);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.mobile-link:hover::before {
+.nav-mobile-item:hover::before {
   transform: scaleY(1);
 }
 
-.mobile-number {
+.nav-mobile-num {
   font-size: 0.9rem;
   font-weight: 600;
   color: rgba(253, 185, 19, 0.5);
-  font-family: monospace;
+  font-family: 'Courier New', monospace;
   min-width: 32px;
   transition: color 0.3s ease;
 }
 
-.mobile-text {
+.nav-mobile-label {
   flex: 1;
   font-size: 1.4rem;
   font-weight: 600;
@@ -526,22 +575,22 @@ onBeforeUnmount(() => {
   transition: color 0.3s ease;
 }
 
-.mobile-arrow {
+.nav-mobile-item svg {
   color: rgba(253, 185, 19, 0.5);
   transition: all 0.3s ease;
 }
 
-.mobile-link:hover .mobile-number,
-.mobile-link:hover .mobile-text,
-.mobile-link:hover .mobile-arrow {
+.nav-mobile-item:hover .nav-mobile-num,
+.nav-mobile-item:hover .nav-mobile-label,
+.nav-mobile-item:hover svg {
   color: #FDB913;
 }
 
-.mobile-link:hover .mobile-arrow {
+.nav-mobile-item:hover svg {
   transform: translateX(4px);
 }
 
-.mobile-book {
+.btn-reserve-mobile {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -554,24 +603,23 @@ onBeforeUnmount(() => {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 20px 28px;
-  border-radius: 0;
   margin-top: 32px;
   transition: all 0.3s ease;
 }
 
-.mobile-book:hover {
+.btn-reserve-mobile:hover {
   background: #ffcc33;
 }
 
-.mobile-book svg {
+.btn-reserve-mobile svg {
   transition: transform 0.3s ease;
 }
 
-.mobile-book:hover svg {
+.btn-reserve-mobile:hover svg {
   transform: translateX(4px);
 }
 
-.mobile-footer {
+.nav-mobile-footer {
   padding: 40px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
@@ -579,13 +627,13 @@ onBeforeUnmount(() => {
   gap: 32px;
 }
 
-.mobile-contact {
+.mobile-contact-info {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.contact-label {
+.contact-title {
   font-size: 0.75rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.5);
@@ -593,7 +641,7 @@ onBeforeUnmount(() => {
   text-transform: uppercase;
 }
 
-.contact-value {
+.contact-phone {
   font-size: 1.1rem;
   font-weight: 500;
   color: #FDB913;
@@ -601,16 +649,16 @@ onBeforeUnmount(() => {
   transition: opacity 0.3s ease;
 }
 
-.contact-value:hover {
+.contact-phone:hover {
   opacity: 0.8;
 }
 
-.mobile-social {
+.mobile-social-links {
   display: flex;
   gap: 16px;
 }
 
-.social-icon {
+.social-link {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -622,206 +670,195 @@ onBeforeUnmount(() => {
   transition: all 0.3s ease;
 }
 
-.social-icon:hover {
+.social-link:hover {
   border-color: #FDB913;
   color: #FDB913;
   background: rgba(253, 185, 19, 0.05);
 }
 
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(5px);
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.4s ease;
-  pointer-events: none;
-}
-
-.overlay.active {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-/* Responsive */
+/* Responsive Breakpoints */
 @media (max-width: 1400px) {
-  .nav-links {
+  .nav-items {
     gap: 24px;
   }
   
-  .nav-text {
+  .nav-label {
     font-size: 0.85rem;
   }
   
-  .desktop-nav {
+  .nav-desktop {
     gap: 32px;
   }
 }
 
 @media (max-width: 1200px) {
-  .header-container {
+  .header-inner {
     padding: 0 60px;
   }
   
-  .nav-links {
+  .nav-items {
     gap: 20px;
   }
   
-  .nav-text {
+  .nav-label {
     font-size: 0.8rem;
   }
   
-  .desktop-nav {
+  .nav-desktop {
     gap: 24px;
   }
   
-  .book-btn {
+  .btn-reserve {
     padding: 12px 20px;
     font-size: 0.85rem;
   }
 }
 
 @media (max-width: 968px) {
-  .desktop-nav {
+  .nav-desktop {
     display: none;
   }
 
-  .menu-toggle {
-    display: block;
+  .menu-btn {
+    display: flex;
   }
   
-  .header-container {
+  .header-inner {
     padding: 0 40px;
   }
 }
 
 @media (max-width: 768px) {
-  .header-container {
+  .header-inner {
     padding: 0 32px;
   }
 
-  .logo-image {
-    width: 48px;
-    height: 48px;
+  .logo-icon {
+    width: 44px;
+    height: 44px;
   }
 
-  .logo-line {
+  .logo-top {
     font-size: 0.95rem;
   }
 
-  .logo-accent {
+  .logo-bottom {
     font-size: 1rem;
   }
   
-  .menu-toggle {
+  .menu-btn {
     right: 32px;
     top: 24px;
   }
   
-  .mobile-menu {
+  .nav-mobile {
     max-width: 100%;
   }
   
-  .mobile-nav {
+  .nav-mobile-items {
     padding: 100px 32px 32px;
   }
   
-  .mobile-link {
+  .nav-mobile-item {
     padding: 20px 0;
   }
   
-  .mobile-link::before {
+  .nav-mobile-item::before {
     left: -32px;
   }
   
-  .mobile-text {
+  .nav-mobile-label {
     font-size: 1.25rem;
   }
   
-  .mobile-footer {
+  .nav-mobile-footer {
     padding: 32px;
   }
 }
 
 @media (max-width: 480px) {
-  .header-container {
+  .header-inner {
     padding: 0 24px;
   }
 
-  .logo {
+  .site-logo {
     gap: 12px;
   }
 
-  .logo-image {
-    width: 42px;
-    height: 42px;
+  .logo-icon {
+    width: 40px;
+    height: 40px;
   }
 
-  .logo-line {
+  .logo-top {
     font-size: 0.85rem;
   }
 
-  .logo-accent {
+  .logo-bottom {
     font-size: 0.9rem;
   }
   
-  .menu-toggle {
+  .menu-btn {
     right: 24px;
     top: 22px;
+    width: 40px;
+    height: 40px;
   }
   
-  .mobile-nav {
+  .menu-btn-line {
+    width: 24px;
+  }
+  
+  .nav-mobile-items {
     padding: 90px 24px 24px;
   }
   
-  .mobile-link {
+  .nav-mobile-item {
     padding: 18px 0;
     gap: 16px;
   }
   
-  .mobile-link::before {
+  .nav-mobile-item::before {
     left: -24px;
   }
   
-  .mobile-number {
+  .nav-mobile-num {
     font-size: 0.8rem;
     min-width: 28px;
   }
   
-  .mobile-text {
+  .nav-mobile-label {
     font-size: 1.15rem;
   }
   
-  .mobile-book {
+  .btn-reserve-mobile {
     padding: 18px 24px;
     font-size: 1rem;
   }
   
-  .mobile-footer {
+  .nav-mobile-footer {
     padding: 24px;
     gap: 24px;
   }
   
-  .contact-value {
+  .contact-phone {
     font-size: 1rem;
   }
   
-  .social-icon {
+  .social-link {
     width: 40px;
     height: 40px;
   }
 }
 
+/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  * {
-    transition: none !important;
-    animation: none !important;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 </style>

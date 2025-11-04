@@ -1,5 +1,5 @@
 <template>
-    <section class="gallery" aria-label="Lounge Gallery">
+    <section class="gallery" aria-label="Lounge Gallery" id="gallery">
       <div class="gallery-container">
         <!-- Header -->
         <div class="gallery-header" data-animate data-delay="0">

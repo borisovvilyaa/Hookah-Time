@@ -1,5 +1,5 @@
 <template>
-  <section class="blog" aria-label="Blog and News">
+  <section class="blog" aria-label="Blog and News" id="blog">
     <div class="blog-container">
       <!-- Header -->
       <div class="blog-header" data-animate data-delay="0">

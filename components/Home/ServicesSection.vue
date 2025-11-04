@@ -1,5 +1,5 @@
 <template>
-  <section class="about" aria-label="About Hookah Time">
+  <section class="about" aria-label="About Hookah Time" id="about">
     <div class="about-container">
       <!-- Main Content -->
       <div class="about-grid">

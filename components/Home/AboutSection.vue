@@ -1,5 +1,5 @@
 <template>
-  <section class="advantages" id="about">
+  <section class="advantages" id="why">
     <div class="advantages-container">
       <!-- Header -->
       <div class="advantages-header" data-animate data-delay="0">

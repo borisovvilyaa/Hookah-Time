@@ -1,5 +1,5 @@
 <template>
-  <section class="faq-section">
+  <section class="faq-section" id="faq">
     <div class="container">
       <!-- Заголовок -->
       <header class="faq-header">
