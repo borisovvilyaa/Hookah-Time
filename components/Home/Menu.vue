@@ -37,14 +37,14 @@
               <div class="item-content">
                 <h4 class="item-name">{{ bowl.name }}</h4>
                 <p v-if="bowl.description" class="item-description">{{ bowl.description }}</p>
-                <button 
+                <!-- <button 
                   v-if="bowl.flavors" 
                   class="view-flavors-btn"
                   @click.stop="openModal(bowl)"
                   type="button"
                 >
                   View Flavors
-                </button>
+                </button> -->
               </div>
               <div class="item-prices">
                 <span class="price">{{ bowl.cashPrice }}</span>
@@ -77,14 +77,14 @@
               >
                 <div class="item-content">
                   <h4 class="item-name">{{ drink.name }}</h4>
-                  <button 
+                  <!-- <button 
                     v-if="drink.variants" 
                     class="view-flavors-btn"
                     @click.stop="openModal(drink)"
                     type="button"
                   >
                     View Variants
-                  </button>
+                  </button> -->
                 </div>
                 <div class="item-prices">
                   <span class="price">{{ drink.cashPrice }}</span>
@@ -113,14 +113,14 @@
               >
                 <div class="item-content">
                   <h4 class="item-name">{{ snack.name }}</h4>
-                  <button 
+                  <!-- <button 
                     v-if="snack.variants" 
                     class="view-flavors-btn"
                     @click.stop="openModal(snack)"
                     type="button"
                   >
                     View Variants
-                  </button>
+                  </button> -->
                 </div>
                 <div class="item-prices">
                   <span class="price">{{ snack.cashPrice }}</span>

@@ -36,7 +36,7 @@ import AboutSection from '~/components/Home/AboutSection.vue';
 
 // SEO Meta Tags
 useHead({
-  title: 'Hookah Time LA | #1 Premium Hookah Lounge in Los Angeles | 400+ Flavors',
+  title: 'Hookah Time LA |  Premium Hookah Lounge in Los Angeles | 400+ Flavors',
   meta: [
     {
       name: 'description',
@@ -53,7 +53,7 @@ useHead({
     // Open Graph Tags
     {
       property: 'og:title',
-      content: 'Hookah Time LA | #1 Premium Hookah Lounge in Los Angeles',
+      content: 'Hookah Time LA |  Premium Hookah Lounge in Los Angeles',
     },
     {
       property: 'og:description',
@@ -74,7 +74,7 @@ useHead({
     },
     {
       name: 'twitter:title',
-      content: 'Hookah Time LA | #1 Premium Hookah Lounge in Los Angeles',
+      content: 'Hookah Time LA |  Premium Hookah Lounge in Los Angeles',
     },
     {
       name: 'twitter:description',
@@ -277,12 +277,12 @@ useHead({
 
 // Additional SEO meta using useSeoMeta
 useSeoMeta({
-  title: 'Hookah Time LA | #1 Premium Hookah Lounge in Los Angeles | 400+ Flavors',
+  title: 'Hookah Time LA |  Premium Hookah Lounge in Los Angeles | 400+ Flavors',
   description: 'Experience LA\'s best hookah lounge at Hookah Time! 400+ premium flavors, expert mix masters, indoor & outdoor seating. Open 2PM-2AM daily. Ladies Night every day! ☎️ +1 424-424-0044',
-  ogTitle: 'Hookah Time LA | #1 Premium Hookah Lounge in Los Angeles',
+  ogTitle: 'Hookah Time LA |  Premium Hookah Lounge in Los Angeles',
   ogDescription: '400+ premium flavors, expert mix masters, indoor & outdoor seating. Open 2PM-2AM daily. Ladies get FREE refills after 6PM!',
   twitterCard: 'summary_large_image',
-  twitterTitle: 'Hookah Time LA | #1 Premium Hookah Lounge in Los Angeles',
+  twitterTitle: 'Hookah Time LA |  Premium Hookah Lounge in Los Angeles',
   twitterDescription: '400+ premium flavors, massive clouds guaranteed. Open late 2PM-2AM. Ladies Night every day!',
 });
 

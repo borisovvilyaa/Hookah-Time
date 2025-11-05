@@ -36,7 +36,7 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1.0',
-      title: 'Hookah Time LA | #1 Premium Hookah Lounge in Los Angeles',
+      title: 'Hookah Time LA |  Premium Hookah Lounge in Los Angeles',
       meta: [
         {
           name: 'description',
@@ -54,7 +54,7 @@ export default defineNuxtConfig({
         // Open Graph (Facebook, LinkedIn, WhatsApp)
         {
           property: 'og:title',
-          content: 'Hookah Time LA | #1 Premium Hookah Lounge in Los Angeles',
+          content: 'Hookah Time LA |  Premium Hookah Lounge in Los Angeles',
         },
         {
           property: 'og:description',
@@ -94,7 +94,7 @@ export default defineNuxtConfig({
         { name: 'twitter:card', content: 'summary_large_image' },
         {
           name: 'twitter:title',
-          content: 'Hookah Time LA | #1 Premium Hookah Lounge in Los Angeles',
+          content: 'Hookah Time LA |  Premium Hookah Lounge in Los Angeles',
         },
         {
           name: 'twitter:description',
@@ -116,8 +116,8 @@ export default defineNuxtConfig({
         { name: 'geo.position', content: '34.1689;-118.4379' },
         
         // PWA & Mobile
-        { name: 'theme-color', content: '#1a1a1a' },
-        { name: 'msapplication-TileColor', content: '#1a1a1a' },
+        { name: 'theme-color', content: 'a1a1a' },
+        { name: 'msapplication-TileColor', content: 'a1a1a' },
         { name: 'apple-mobile-web-app-capable', content: 'yes' },
         { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
         { name: 'apple-mobile-web-app-title', content: 'Hookah Time LA' },
