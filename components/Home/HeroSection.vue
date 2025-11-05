@@ -44,7 +44,7 @@
               </div>
             </NuxtLink>
 
-            <a href="tel:+13234567890" class="cta-link cta-link-featured">
+            <a href="tel:+14244240044" class="cta-link cta-link-featured">
               <div class="cta-number">02</div>
               <div class="cta-content">
                 <span class="cta-label">Reserve Now</span>
@@ -65,7 +65,7 @@
             <a href="https://www.youtube.com/@HookahTime_LA" class="social-link" aria-label="YouTube">
               <i class="fa-brands fa-youtube"></i>
             </a>
-            <a href="https://www.yelp.com/biz/hookah-time-sherman-oaks-4" class="social-link" aria-label="YouTube">
+            <a href="https://www.yelp.com/biz/hookah-time-sherman-oaks-4" class="social-link" aria-label="Yelp">
               <i class="fa-brands fa-yelp"></i>
             </a>
           </div>
@@ -491,7 +491,7 @@ onUnmounted(() => {
   50% { background-position: 100% center; }
 }
 
-/* Responsive Design */
+/* Desktop responsive */
 @media (max-width: 1200px) {
   .hero-content {
     padding: 60px 60px;
@@ -506,6 +506,7 @@ onUnmounted(() => {
   }
 }
 
+/* Tablet responsive */
 @media (max-width: 968px) {
   .hero-content {
     padding: 100px 40px 32px;
@@ -531,32 +532,6 @@ onUnmounted(() => {
   
   .cta-group {
     max-width: 100%;
-    flex-direction: row;
-    gap: 12px;
-  }
-  
-  .cta-link {
-    flex: 1;
-    padding: 20px 16px;
-    gap: 12px;
-  }
-  
-  .cta-number {
-    font-size: 1rem;
-    min-width: 32px;
-  }
-  
-  .cta-label {
-    font-size: 0.65rem;
-  }
-  
-  .cta-title {
-    font-size: 1rem;
-  }
-  
-  .cta-arrow svg {
-    width: 24px;
-    height: 24px;
   }
   
   .social-links {
@@ -572,31 +547,39 @@ onUnmounted(() => {
   .info-divider {
     display: none;
   }
-  
-  .info-value {
-    font-size: 0.85rem;
-  }
 }
 
+/* Mobile responsive - FIXED VERSION */
 @media (max-width: 768px) {
   .hero-content {
-    padding: 90px 32px 28px;
+    padding: 100px 20px 24px; /* Увеличен верхний padding для header'а */
+    justify-content: flex-start; /* Изменено на flex-start */
   }
   
   .content-grid {
-    gap: 32px;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: flex-start;
+    padding-top: 20px; /* Дополнительный отступ сверху */
   }
   
   .left-side {
     gap: 20px;
   }
   
+  .logo-glow {
+    width: 200px;
+    height: 200px;
+    left: -10px;
+  }
+  
   .brand-name {
-    font-size: clamp(2.5rem, 12vw, 4rem);
+    font-size: clamp(2.8rem, 13vw, 4.2rem);
+    line-height: 0.9;
   }
   
   .tagline {
-    gap: 12px;
+    gap: 16px;
   }
   
   .line {
@@ -605,22 +588,48 @@ onUnmounted(() => {
   
   .tagline-text {
     font-size: 0.8rem;
+    letter-spacing: 0.08em;
   }
   
   .right-side {
-    gap: 24px;
+    gap: 28px;
+    align-items: stretch;
   }
   
   .cta-group {
-    gap: 10px;
+    gap: 14px;
   }
   
   .cta-link {
-    padding: 18px 14px;
+    padding: 20px 18px;
+    gap: 16px;
+  }
+  
+  .cta-link:hover {
+    transform: translateY(-2px);
+  }
+  
+  .cta-number {
+    font-size: 1rem;
+    min-width: 32px;
+  }
+  
+  .cta-label {
+    font-size: 0.65rem;
   }
   
   .cta-title {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
+  }
+  
+  .cta-arrow svg {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .social-links {
+    gap: 12px;
+    justify-content: flex-start;
   }
   
   .social-link {
@@ -629,12 +638,24 @@ onUnmounted(() => {
   }
   
   .bottom-bar {
-    gap: 12px;
-    padding: 12px 0 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 0 0;
+    margin-top: auto; /* Прижимает к низу */
+  }
+  
+  .info-item {
+    width: 100%;
+    gap: 5px;
+  }
+  
+  .info-divider {
+    display: none;
   }
   
   .info-label {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
   }
   
   .info-value {
@@ -642,21 +663,37 @@ onUnmounted(() => {
   }
 }
 
+/* Extra small mobile */
 @media (max-width: 480px) {
   .hero-content {
-    padding: 85px 20px 24px;
+    padding: 90px 16px 20px; /* Немного меньше padding для маленьких экранов */
   }
   
   .content-grid {
-    gap: 28px;
+    gap: 32px;
+    padding-top: 16px;
   }
   
   .left-side {
     gap: 16px;
   }
   
+  .logo-glow {
+    width: 160px;
+    height: 160px;
+    left: -5px;
+  }
+  
   .brand-name {
-    font-size: clamp(2.2rem, 13vw, 3.5rem);
+    font-size: clamp(2.5rem, 12vw, 3.8rem);
+  }
+  
+  .tagline {
+    gap: 12px;
+  }
+  
+  .line {
+    width: 32px;
   }
   
   .tagline-text {
@@ -664,20 +701,20 @@ onUnmounted(() => {
   }
   
   .right-side {
-    gap: 20px;
+    gap: 24px;
   }
   
   .cta-group {
-    gap: 8px;
+    gap: 12px;
   }
   
   .cta-link {
-    padding: 16px 12px;
-    gap: 8px;
+    padding: 18px 16px;
+    gap: 14px;
   }
   
   .cta-number {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     min-width: 28px;
   }
   
@@ -686,26 +723,34 @@ onUnmounted(() => {
   }
   
   .cta-title {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
   
   .cta-arrow svg {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .social-links {
+    gap: 10px;
   }
   
   .social-link {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
   }
   
   .bottom-bar {
-    gap: 10px;
-    padding: 10px 0 0;
+    gap: 12px;
+    padding: 16px 0 0;
+  }
+  
+  .info-item {
+    gap: 4px;
   }
   
   .info-label {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
   }
   
   .info-value {
@@ -713,46 +758,17 @@ onUnmounted(() => {
   }
 }
 
-@media (max-width: 380px) {
+/* Landscape mobile optimization */
+@media (max-height: 600px) and (orientation: landscape) {
   .hero-content {
-    padding: 80px 16px 20px;
-  }
-  
-  .cta-group {
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .cta-link {
-    padding: 16px 16px;
-  }
-}
-
-@media (max-height: 700px) and (min-width: 769px) {
-  .hero-content {
-    padding: 40px 60px;
+    padding: 80px 20px 16px;
+    justify-content: flex-start;
   }
   
   .content-grid {
-    gap: 40px;
-  }
-  
-  .left-side {
-    gap: 24px;
-  }
-  
-  .right-side {
-    gap: 30px;
-  }
-}
-
-@media (max-height: 650px) and (max-width: 968px) {
-  .hero-content {
-    padding: 80px 32px 20px;
-  }
-  
-  .content-grid {
-    gap: 24px;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    padding-top: 0;
   }
   
   .left-side {
@@ -760,22 +776,31 @@ onUnmounted(() => {
   }
   
   .brand-name {
-    font-size: clamp(2rem, 10vw, 3.5rem);
+    font-size: clamp(2rem, 8vw, 3rem);
   }
   
   .right-side {
     gap: 20px;
   }
   
-  .cta-link {
-    padding: 14px 12px;
+  .bottom-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 12px 0 0;
   }
   
-  .bottom-bar {
-    padding: 10px 0 0;
+  .info-item {
+    width: auto;
+  }
+  
+  .info-divider {
+    display: block;
+    height: 24px;
   }
 }
 
+/* Reduced motion accessibility */
 @media (prefers-reduced-motion: reduce) {
   [data-animate] {
     opacity: 1;
