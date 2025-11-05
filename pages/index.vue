@@ -13,6 +13,7 @@
       <HeroSection />
     </div>
     <Menu />
+    <Reviews />
     <ServicesSection />
     <AboutSection />
     <Blog />
@@ -32,7 +33,7 @@ import Blog from '~/components/Home/Blog.vue';
 import Gallery from '~/components/Home/Gallery.vue';
 
 import AboutSection from '~/components/Home/AboutSection.vue';
-
+import Reviews from '~/components/Home/Reviews.vue';
 
 // SEO Meta Tags
 useHead({
