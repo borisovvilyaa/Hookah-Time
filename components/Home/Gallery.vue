@@ -120,55 +120,55 @@
   let observer = null;
   
   const galleryPhotos = [
-    {
-      image: 'https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?w=1200&q=80',
-      title: 'Main Lounge Area',
-      description: 'Spacious seating with ambient lighting and modern decor',
-      size: 'large'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80',
-      title: 'VIP Section',
-      description: 'Private booths for an exclusive experience',
-      size: 'medium'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1556910110-a5a63dfd393c?w=800&q=80',
-      title: 'Premium Hookah Bar',
-      description: 'Over 100+ flavors to choose from',
-      size: 'medium'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80',
-      title: 'Cozy Corner',
-      description: 'Perfect for intimate gatherings',
-      size: 'small'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=600&q=80',
-      title: 'Outdoor Patio',
-      description: 'Fresh air meets premium hookah',
-      size: 'small'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1509023464722-18d996393ca8?w=800&q=80',
-      title: 'Night Vibes',
-      description: 'When the lounge comes alive',
-      size: 'medium'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=600&q=80',
-      title: 'Artistic Details',
-      description: 'Every detail crafted with care',
-      size: 'small'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1200&q=80',
-      title: 'Weekend Atmosphere',
-      description: 'Where memories are made',
-      size: 'large'
-    }
-  ];
+  {
+    image: 'https://hookahtimela.s3.us-west-1.amazonaws.com/HTL/gallery/Liberty+Lounge.webp',
+    title: 'Liberty Lounge',
+    description: 'Luxurious main hall with elegant ambiance',
+    size: 'large'
+  },
+  {
+    image: 'https://hookahtimela.s3.us-west-1.amazonaws.com/HTL/gallery/GoldenTable.webp',
+    title: 'Golden Table',
+    description: 'Premium seating with golden accents',
+    size: 'medium'
+  },
+  {
+    image: 'https://hookahtimela.s3.us-west-1.amazonaws.com/HTL/gallery/HookahStation.webp',
+    title: 'Hookah Station',
+    description: 'Expert preparation area with premium equipment',
+    size: 'medium'
+  },
+  {
+    image: 'https://hookahtimela.s3.us-west-1.amazonaws.com/HTL/gallery/VelvetCorner.webp',
+    title: 'Velvet Corner',
+    description: 'Cozy velvet seating for intimate moments',
+    size: 'small'
+  },
+  {
+    image: 'https://hookahtimela.s3.us-west-1.amazonaws.com/HTL/gallery/BarGlow.webp',
+    title: 'Bar Glow',
+    description: 'Sophisticated bar area with ambient lighting',
+    size: 'small'
+  },
+  {
+    image: 'https://hookahtimela.s3.us-west-1.amazonaws.com/HTL/gallery/HookahGallery.webp',
+    title: 'Hookah Gallery',
+    description: 'Showcase of our premium hookah collection',
+    size: 'medium'
+  },
+  {
+    image: 'https://hookahtimela.s3.us-west-1.amazonaws.com/HTL/gallery/CaesarsDen.webp',
+    title: 'Caesars Den',
+    description: 'VIP area with exclusive atmosphere',
+    size: 'small'
+  },
+  {
+    image: 'https://hookahtimela.s3.us-west-1.amazonaws.com/HTL/gallery/FlavorVault.webp',
+    title: 'Flavor Vault',
+    description: 'Our extensive selection of premium flavors',
+    size: 'large'
+  }
+];
   
   const openLightbox = (index) => {
     currentPhoto.value = index;

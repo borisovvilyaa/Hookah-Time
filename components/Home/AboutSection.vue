@@ -62,15 +62,25 @@ const advantages = [
   {
     title: '400+ Premium Flavors',
     description: 'From classic AL FAKHER to exotic DARKSIDE and TANGIERS. Mix any flavors you want - our masters will create your perfect blend.',
-    image: 'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=600&h=400&fit=crop',
+    image: 'https://hookahtimela.s3.us-west-1.amazonaws.com/HTL/Flavors.jpg',
     icon: () => h('svg', { width: '32', height: '32', viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': '2' }, [
       h('path', { d: 'M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z' })
     ])
   },
   {
+    title: 'Open Late 2PM-2AM',
+    description: 'Whether it\'s afternoon chill or late night vibes, we\'re here for you 12 hours every day. Guest parking available.',
+    image: 'https://hookahtimela.s3.us-west-1.amazonaws.com/HTL/Launch.jpg',
+    icon: () => h('svg', { width: '32', height: '32', viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': '2' }, [
+      h('circle', { cx: '12', cy: '12', r: '10' }),
+      h('polyline', { points: '12 6 12 12 16 14' })
+    ])
+  },
+ 
+  {
     title: '100+ Bowls Daily',
     description: 'We pack over 100 perfect bowls every single day. Each one prepared by expert masters who know how to get massive clouds.',
-    image: 'https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=600&h=400&fit=crop',
+    image: 'https://hookahtimela.s3.us-west-1.amazonaws.com/HTL/bowl.jpg',
     icon: () => h('svg', { width: '32', height: '32', viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': '2' }, [
       h('path', { d: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z' })
     ])
@@ -89,19 +99,10 @@ const advantages = [
   {
     title: 'Indoor & Outdoor Seating',
     description: 'Choose your vibe - comfy indoor lounge with AC or our chill outdoor patio. Both spaces are designed for the perfect session.',
-    image: 'https://images.unsplash.com/photo-1582037928769-181f2644ecb7?w=600&h=400&fit=crop',
+    image: 'https://hookahtimela.s3.us-west-1.amazonaws.com/HTL/LaunchMore.jpg',
     icon: () => h('svg', { width: '32', height: '32', viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': '2' }, [
       h('path', { d: 'M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z' }),
       h('polyline', { points: '9 22 9 12 15 12 15 22' })
-    ])
-  },
-  {
-    title: 'Open Late 2PM-2AM',
-    description: 'Whether it\'s afternoon chill or late night vibes, we\'re here for you 12 hours every day. Guest parking available.',
-    image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&h=400&fit=crop',
-    icon: () => h('svg', { width: '32', height: '32', viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': '2' }, [
-      h('circle', { cx: '12', cy: '12', r: '10' }),
-      h('polyline', { points: '12 6 12 12 16 14' })
     ])
   }
 ];

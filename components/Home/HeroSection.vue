@@ -3,7 +3,7 @@
     <div class="hero-background">
       <iframe 
         class="hero-video"
-        src=""
+        src="https://www.youtube.com/embed/vy1_BI-ev3k?autoplay=1&mute=1&loop=1&playlist=vy1_BI-ev3k&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&iv_load_policy=3&disablekb=1&fs=0"
         frameborder="0"
         allow="autoplay; encrypted-media"
         allowfullscreen
@@ -56,6 +56,19 @@
                 </svg>
               </div>
             </a>
+
+            <!-- <NuxtLink to="/#blog" class="cta-link">
+              <div class="cta-number">03</div>
+              <div class="cta-content">
+                <span class="cta-label">Latest News</span>
+                <span class="cta-title">Read Blog</span>
+              </div>
+              <div class="cta-arrow">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <path d="M8 16H24M24 16L16 8M24 16L16 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </NuxtLink> -->
           </div>
 
           <div class="social-links" data-animate data-delay="400">
@@ -164,27 +177,12 @@ onUnmounted(() => {
   position: absolute;
   top: 50%;
   left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate(-50%, -50%) scale(1.02);
-  object-fit: cover;
+  width: 100vw;
+  height: 56.25vw;
+  min-height: 100vh;
+  min-width: 177.78vh;
+  transform: translate(-50%, -50%);
   pointer-events: none;
-}
-
-@media (max-aspect-ratio: 16/9) {
-  .hero-video {
-    width: 100%;
-    height: auto;
-  }
-}
-
-@media (min-aspect-ratio: 16/9) {
-  .hero-video {
-    width: auto;
-    height: 100%;
-  }
 }
 
 .video-overlay {
@@ -193,11 +191,7 @@ onUnmounted(() => {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(0, 0, 0, 0.3) 0%,
-    rgba(0, 0, 0, 0.7) 100%
-  );
+  background: rgba(0, 0, 0, 0.85);
   z-index: 2;
 }
 
@@ -549,18 +543,18 @@ onUnmounted(() => {
   }
 }
 
-/* Mobile responsive - FIXED VERSION */
+/* Mobile responsive */
 @media (max-width: 768px) {
   .hero-content {
-    padding: 100px 20px 24px; /* Увеличен верхний padding для header'а */
-    justify-content: flex-start; /* Изменено на flex-start */
+    padding: 100px 20px 24px;
+    justify-content: flex-start;
   }
   
   .content-grid {
     grid-template-columns: 1fr;
     gap: 40px;
     align-items: flex-start;
-    padding-top: 20px; /* Дополнительный отступ сверху */
+    padding-top: 20px;
   }
   
   .left-side {
@@ -642,7 +636,7 @@ onUnmounted(() => {
     align-items: flex-start;
     gap: 14px;
     padding: 18px 0 0;
-    margin-top: auto; /* Прижимает к низу */
+    margin-top: auto;
   }
   
   .info-item {
@@ -666,7 +660,7 @@ onUnmounted(() => {
 /* Extra small mobile */
 @media (max-width: 480px) {
   .hero-content {
-    padding: 90px 16px 20px; /* Немного меньше padding для маленьких экранов */
+    padding: 90px 16px 20px;
   }
   
   .content-grid {
