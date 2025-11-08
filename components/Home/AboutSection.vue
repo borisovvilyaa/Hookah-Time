@@ -86,17 +86,6 @@ const advantages = [
     ])
   },
   {
-    title: 'Expert Mix Masters',
-    description: 'Our hookah masters have years of experience. They know every flavor and can create custom mixes that you\'ll never forget.',
-    image: 'https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=600&h=400&fit=crop',
-    icon: () => h('svg', { width: '32', height: '32', viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': '2' }, [
-      h('path', { d: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2' }),
-      h('circle', { cx: '9', cy: '7', r: '4' }),
-      h('path', { d: 'M23 21v-2a4 4 0 0 0-3-3.87' }),
-      h('path', { d: 'M16 3.13a4 4 0 0 1 0 7.75' })
-    ])
-  },
-  {
     title: 'Indoor & Outdoor Seating',
     description: 'Choose your vibe - comfy indoor lounge with AC or our chill outdoor patio. Both spaces are designed for the perfect session.',
     image: 'https://hookahtimela.s3.us-west-1.amazonaws.com/HTL/LaunchMore.jpg',
@@ -242,7 +231,7 @@ onUnmounted(() => {
 /* Advantages Grid */
 .advantages-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 32px;
   margin-bottom: 80px;
 }
