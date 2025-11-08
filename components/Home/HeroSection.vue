@@ -57,7 +57,7 @@
               </div>
             </a>
 
-            <!-- <NuxtLink to="/#blog" class="cta-link">
+            <NuxtLink to="/#blog" class="cta-link">
               <div class="cta-number">03</div>
               <div class="cta-content">
                 <span class="cta-label">Latest News</span>
@@ -68,7 +68,7 @@
                   <path d="M8 16H24M24 16L16 8M24 16L16 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
-            </NuxtLink> -->
+            </NuxtLink>
           </div>
 
           <div class="social-links" data-animate data-delay="400">
@@ -313,16 +313,16 @@ onUnmounted(() => {
 .cta-group {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 14px;
   width: 100%;
-  max-width: 500px;
+  max-width: 450px;
 }
 
 .cta-link {
   display: flex;
   align-items: center;
-  gap: 24px;
-  padding: 28px 36px;
+  gap: 18px;
+  padding: 20px 24px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0;
@@ -368,22 +368,22 @@ onUnmounted(() => {
 }
 
 .cta-number {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: rgba(253, 185, 19, 0.6);
   font-family: monospace;
-  min-width: 40px;
+  min-width: 36px;
 }
 
 .cta-content {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
   flex: 1;
 }
 
 .cta-label {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.5);
   letter-spacing: 0.15em;
@@ -391,7 +391,7 @@ onUnmounted(() => {
 }
 
 .cta-title {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.95);
   letter-spacing: 0.02em;
@@ -500,7 +500,7 @@ onUnmounted(() => {
   }
 }
 
-/* Tablet responsive */
+/* Tablet responsive (969px - 768px) */
 @media (max-width: 968px) {
   .hero-content {
     padding: 100px 40px 32px;
@@ -508,7 +508,7 @@ onUnmounted(() => {
   
   .content-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 50px;
   }
   
   .left-side {
@@ -516,16 +516,21 @@ onUnmounted(() => {
   }
   
   .brand-name {
-    font-size: clamp(3rem, 11vw, 5rem);
+    font-size: clamp(3.5rem, 10vw, 5.5rem);
   }
   
   .right-side {
     align-items: stretch;
-    gap: 32px;
+    gap: 36px;
   }
   
   .cta-group {
     max-width: 100%;
+    gap: 16px;
+  }
+  
+  .cta-link {
+    padding: 24px 28px;
   }
   
   .social-links {
@@ -543,10 +548,10 @@ onUnmounted(() => {
   }
 }
 
-/* Mobile responsive */
+/* Mobile 768px - увеличенный текст */
 @media (max-width: 768px) {
   .hero-content {
-    padding: 100px 20px 24px;
+    padding: 90px 28px 24px;
     justify-content: flex-start;
   }
   
@@ -554,21 +559,21 @@ onUnmounted(() => {
     grid-template-columns: 1fr;
     gap: 40px;
     align-items: flex-start;
-    padding-top: 20px;
+    padding-top: 16px;
   }
   
   .left-side {
-    gap: 20px;
+    gap: 28px;
   }
   
   .logo-glow {
-    width: 200px;
-    height: 200px;
-    left: -10px;
+    width: 280px;
+    height: 280px;
+    left: -15px;
   }
   
   .brand-name {
-    font-size: clamp(2.8rem, 13vw, 4.2rem);
+    font-size: clamp(5rem, 17vw, 7rem);
     line-height: 0.9;
   }
   
@@ -577,12 +582,12 @@ onUnmounted(() => {
   }
   
   .line {
-    width: 40px;
+    width: 50px;
   }
   
   .tagline-text {
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
   }
   
   .right-side {
@@ -595,8 +600,8 @@ onUnmounted(() => {
   }
   
   .cta-link {
-    padding: 20px 18px;
-    gap: 16px;
+    padding: 18px 20px;
+    gap: 14px;
   }
   
   .cta-link:hover {
@@ -622,20 +627,20 @@ onUnmounted(() => {
   }
   
   .social-links {
-    gap: 12px;
+    gap: 14px;
     justify-content: flex-start;
   }
   
   .social-link {
-    width: 44px;
-    height: 44px;
+    width: 46px;
+    height: 46px;
   }
   
   .bottom-bar {
     flex-direction: column;
     align-items: flex-start;
-    gap: 14px;
-    padding: 18px 0 0;
+    gap: 16px;
+    padding: 20px 0 0;
     margin-top: auto;
   }
   
@@ -649,49 +654,113 @@ onUnmounted(() => {
   }
   
   .info-label {
-    font-size: 0.6rem;
+    font-size: 0.65rem;
   }
   
   .info-value {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
   }
 }
 
-/* Extra small mobile */
+/* Mobile 640px - крупный текст */
+@media (max-width: 640px) {
+  .hero-content {
+    padding: 85px 24px 22px;
+  }
+  
+  .content-grid {
+    gap: 36px;
+    padding-top: 14px;
+  }
+  
+  .left-side {
+    gap: 24px;
+  }
+  
+  .logo-glow {
+    width: 250px;
+    height: 250px;
+    left: -12px;
+  }
+  
+  .brand-name {
+    font-size: clamp(4.5rem, 16vw, 6.5rem);
+    line-height: 0.88;
+  }
+  
+  .tagline-text {
+    font-size: 0.9rem;
+  }
+  
+  .right-side {
+    gap: 26px;
+  }
+  
+  .cta-group {
+    gap: 13px;
+  }
+  
+  .cta-link {
+    padding: 17px 18px;
+    gap: 13px;
+  }
+  
+  .cta-number {
+    font-size: 0.95rem;
+    min-width: 30px;
+  }
+  
+  .cta-label {
+    font-size: 0.63rem;
+  }
+  
+  .cta-title {
+    font-size: 1rem;
+  }
+  
+  .cta-arrow svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Mobile 480px - оптимальный размер */
 @media (max-width: 480px) {
   .hero-content {
-    padding: 90px 16px 20px;
+    padding: 80px 20px 20px;
   }
   
   .content-grid {
     gap: 32px;
-    padding-top: 16px;
+    padding-top: 12px;
   }
   
   .left-side {
-    gap: 16px;
+    gap: 22px;
   }
   
   .logo-glow {
-    width: 160px;
-    height: 160px;
-    left: -5px;
+    width: 220px;
+    height: 220px;
+    left: -10px;
   }
   
   .brand-name {
-    font-size: clamp(2.5rem, 12vw, 3.8rem);
+    font-size: clamp(4rem, 15vw, 6rem);
+    line-height: 0.87;
   }
   
   .tagline {
-    gap: 12px;
+    gap: 14px;
   }
   
   .line {
-    width: 32px;
+    width: 42px;
   }
   
   .tagline-text {
-    font-size: 0.7rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
   }
   
   .right-side {
@@ -703,12 +772,12 @@ onUnmounted(() => {
   }
   
   .cta-link {
-    padding: 18px 16px;
-    gap: 14px;
+    padding: 16px 16px;
+    gap: 12px;
   }
   
   .cta-number {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     min-width: 28px;
   }
   
@@ -717,16 +786,109 @@ onUnmounted(() => {
   }
   
   .cta-title {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
   
   .cta-arrow svg {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
   }
   
   .social-links {
-    gap: 10px;
+    gap: 12px;
+  }
+  
+  .social-link {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .bottom-bar {
+    gap: 14px;
+    padding: 18px 0 0;
+  }
+  
+  .info-item {
+    gap: 5px;
+  }
+  
+  .info-label {
+    font-size: 0.6rem;
+  }
+  
+  .info-value {
+    font-size: 0.8rem;
+  }
+}
+
+/* Very small screens - крупно и читабельно */
+@media (max-width: 380px) {
+  .hero-content {
+    padding: 75px 18px 18px;
+  }
+  
+  .content-grid {
+    gap: 30px;
+    padding-top: 10px;
+  }
+  
+  .left-side {
+    gap: 20px;
+  }
+  
+  .logo-glow {
+    width: 200px;
+    height: 200px;
+    left: -8px;
+  }
+  
+  .brand-name {
+    font-size: clamp(3.5rem, 14vw, 5.5rem);
+    line-height: 0.86;
+  }
+  
+  .tagline {
+    gap: 12px;
+  }
+  
+  .line {
+    width: 38px;
+  }
+  
+  .tagline-text {
+    font-size: 0.8rem;
+    letter-spacing: 0.09em;
+  }
+  
+  .right-side {
+    gap: 22px;
+  }
+  
+  .cta-group {
+    gap: 11px;
+  }
+  
+  .cta-link {
+    padding: 15px 14px;
+    gap: 11px;
+  }
+  
+  .cta-number {
+    font-size: 0.85rem;
+    min-width: 26px;
+  }
+  
+  .cta-label {
+    font-size: 0.58rem;
+  }
+  
+  .cta-title {
+    font-size: 0.9rem;
+  }
+  
+  .cta-arrow svg {
+    width: 20px;
+    height: 20px;
   }
   
   .social-link {
@@ -734,17 +896,8 @@ onUnmounted(() => {
     height: 42px;
   }
   
-  .bottom-bar {
-    gap: 12px;
-    padding: 16px 0 0;
-  }
-  
-  .info-item {
-    gap: 4px;
-  }
-  
   .info-label {
-    font-size: 0.55rem;
+    font-size: 0.57rem;
   }
   
   .info-value {
@@ -755,13 +908,13 @@ onUnmounted(() => {
 /* Landscape mobile optimization */
 @media (max-height: 600px) and (orientation: landscape) {
   .hero-content {
-    padding: 80px 20px 16px;
+    padding: 70px 24px 18px;
     justify-content: flex-start;
   }
   
   .content-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    gap: 36px;
     padding-top: 0;
   }
   
@@ -770,18 +923,44 @@ onUnmounted(() => {
   }
   
   .brand-name {
-    font-size: clamp(2rem, 8vw, 3rem);
+    font-size: clamp(2.2rem, 8vw, 3.2rem);
+    line-height: 0.88;
+  }
+  
+  .tagline-text {
+    font-size: 0.75rem;
   }
   
   .right-side {
     gap: 20px;
   }
   
+  .cta-group {
+    gap: 10px;
+  }
+  
+  .cta-link {
+    padding: 14px 16px;
+  }
+  
+  .cta-number {
+    font-size: 0.9rem;
+    min-width: 28px;
+  }
+  
+  .cta-label {
+    font-size: 0.6rem;
+  }
+  
+  .cta-title {
+    font-size: 0.95rem;
+  }
+  
   .bottom-bar {
     flex-direction: row;
     justify-content: space-between;
     gap: 20px;
-    padding: 12px 0 0;
+    padding: 14px 0 0;
   }
   
   .info-item {
