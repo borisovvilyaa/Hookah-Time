@@ -36,8 +36,8 @@ import Reviews from '~/components/Home/Reviews.vue';
 const config = useRuntimeConfig();
 
 const business = {
-  name: 'Hookah Time LA',
-  legalName: 'Hookah Time LA',
+  name: 'Hookah Time Los Angeles',
+  legalName: 'Hookah Time Los Angeles',
   url: 'https://hookahtimela.com',
   logo: 'https://hookahtimela.com/logo.png',
   image: 'https://hookahtimela.com/banner.jpg',
@@ -62,15 +62,15 @@ const business = {
 };
 
 useHead({
-  title: 'Hookah Time LA | Best Hookah Lounge in Los Angeles | 400+ Flavors',
+  title: 'The Best Hookah Lounge in Valley Glen',
   link: [{ rel: 'canonical', href: business.url }],
 });
 
 useSeoMeta({
   description:
-    'Best hookah lounge in LA! 400+ premium flavors, expert mixologists, indoor/outdoor seating. Open 2PM-2AM daily. 4716 Woodman Ave, LA ☎ +1 424-424-0044',
+    'Best hookah lounge in Los Angeles! 400+ premium flavors, expert mixologists, indoor/outdoor seating. Open 2PM-2AM daily. 4716 Woodman Ave, Los Angeles  +1 424-424-0044',
   keywords:
-    'hookah lounge los angeles, best hookah la, hookah bar sherman oaks, shisha valley village, premium hookah flavors, late night hookah, outdoor hookah la, woodman ave hookah',
+    'hookah lounge los angeles, best hookah Los Angeles, hookah bar sherman oaks, shisha valley village, premium hookah flavors, late night hookah, outdoor hookah Los Angeles, woodman ave hookah',
   ogTitle: business.name + ' | Premium Hookah Lounge in Los Angeles',
   ogDescription: '400+ flavors, expert mixes, indoor & outdoor seating. Open till 2AM.',
   ogUrl: business.url,
@@ -94,7 +94,7 @@ useHead({
         name: business.name,
         legalName: business.legalName,
         description:
-          "LA's top hookah lounge with 400+ premium flavors, expert mix masters, indoor & outdoor seating. Open daily 2PM-2AM.!",
+          "Los Angeles's top hookah lounge with 400+ premium flavors, expert mix masters, indoor & outdoor seating. Open daily 2PM-2AM.!",
         url: business.url,
         logo: business.logo,
         image: business.image,

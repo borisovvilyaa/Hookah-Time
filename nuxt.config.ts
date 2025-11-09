@@ -34,7 +34,7 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1.0',
-      titleTemplate: '%s | Hookah Time LA',
+      titleTemplate: '%s | Hookah Time',
       htmlAttrs: { lang: 'en' },
       meta: [
         { name: 'robots', content: 'index, follow' },

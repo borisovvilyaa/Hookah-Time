@@ -146,7 +146,7 @@
           <NuxtLink 
             v-for="relatedPost in relatedPosts.slice(0, 3)" 
             :key="relatedPost.id"
-            :to="`/blog/${relatedPost.documentId}`" 
+            :to="`/blog/${relatedPost.slug}`" 
             class="related-card"
           >
             <div class="card-image">
