@@ -57,7 +57,6 @@ const business = {
   openingHours: 'Mo-Su 14:00-02:00',
   sameAs: [
     'https://www.instagram.com/hookahtimela',
-    'https://www.tiktok.com/@hookahtimela',
     'https://g.page/hookahtimela',
   ],
 };
@@ -69,11 +68,11 @@ useHead({
 
 useSeoMeta({
   description:
-    'Best hookah lounge in LA! 400+ premium flavors, expert mixologists, indoor/outdoor seating. Open 2PM-2AM daily. Ladies get FREE refills after 6PM. 4716 Woodman Ave, LA ☎ +1 424-424-0044',
+    'Best hookah lounge in LA! 400+ premium flavors, expert mixologists, indoor/outdoor seating. Open 2PM-2AM daily. 4716 Woodman Ave, LA ☎ +1 424-424-0044',
   keywords:
-    'hookah lounge los angeles, best hookah la, hookah bar sherman oaks, shisha valley village, premium hookah flavors, late night hookah, ladies night hookah, outdoor hookah la, woodman ave hookah',
+    'hookah lounge los angeles, best hookah la, hookah bar sherman oaks, shisha valley village, premium hookah flavors, late night hookah, outdoor hookah la, woodman ave hookah',
   ogTitle: business.name + ' | Premium Hookah Lounge in Los Angeles',
-  ogDescription: '400+ flavors, expert mixes, indoor & outdoor seating. Open till 2AM. Ladies Night every day with FREE refills!',
+  ogDescription: '400+ flavors, expert mixes, indoor & outdoor seating. Open till 2AM.',
   ogUrl: business.url,
   ogImage: business.image,
   ogType: 'website',
@@ -95,7 +94,7 @@ useHead({
         name: business.name,
         legalName: business.legalName,
         description:
-          "LA's top hookah lounge with 400+ premium flavors, expert mix masters, indoor & outdoor seating. Open daily 2PM-2AM. Ladies Night every day!",
+          "LA's top hookah lounge with 400+ premium flavors, expert mix masters, indoor & outdoor seating. Open daily 2PM-2AM.!",
         url: business.url,
         logo: business.logo,
         image: business.image,
@@ -151,18 +150,6 @@ useHead({
             },
           ],
         },
-        event: {
-          '@type': 'Event',
-          name: 'Ladies Night — Free Refills',
-          description: 'Every day after 6PM — ladies get unlimited free refills',
-          eventStatus: 'https://schema.org/EventScheduled',
-          eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-          startDate: '2025-01-01',
-          endDate: '2025-12-31',
-          organizer: { '@type': 'Organization', name: business.name, url: business.url },
-          location: { '@type': 'Place', name: business.name, address: { '@type': 'PostalAddress', ...business.address } },
-          offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', name: 'Free Refills for Ladies' },
-        },
       }),
     },
     {
@@ -186,11 +173,7 @@ useHead({
             name: 'Is parking available?',
             acceptedAnswer: { '@type': 'Answer', text: 'Yes, free guest parking is available on-site.' },
           },
-          {
-            '@type': 'Question',
-            name: 'What is Ladies Night?',
-            acceptedAnswer: { '@type': 'Answer', text: 'Every day after 6PM, ladies get FREE unlimited refills!' },
-          },
+
           {
             '@type': 'Question',
             name: 'How many flavors do you have?',
