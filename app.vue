@@ -112,13 +112,27 @@ if (process.client) {
 </script>
 
 <script>
-// Inject Google Tag Manager script in the head
 if (process.client) {
   // Inject Google Fonts for Inter
   const fontLink = document.createElement('link')
   fontLink.rel = 'stylesheet'
   fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'
   document.head.appendChild(fontLink)
+
+  // Inject Google Analytics
+  const gtagScript = document.createElement('script')
+  gtagScript.async = true
+  gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-VC5RJ6N4H1'
+  document.head.appendChild(gtagScript)
+
+  const gtagInlineScript = document.createElement('script')
+  gtagInlineScript.innerHTML = `
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VC5RJ6N4H1');
+  `
+  document.head.appendChild(gtagInlineScript)
 }
 </script>
 
