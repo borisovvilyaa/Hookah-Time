@@ -227,7 +227,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   if (observer) {
-    observer.disconnect();
+    observer.disconnect();Ф
   }
 });
 </script>
