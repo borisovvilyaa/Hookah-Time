@@ -1,2 +1,7 @@
-User-Agent: *
-Disallow:
+User-agent: *
+Allow: /
+
+Disallow: /_nuxt/
+Disallow: /__nuxt_devtools__/
+
+Sitemap: https://hookahtimela.com/sitemap.xml

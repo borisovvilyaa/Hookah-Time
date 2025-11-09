@@ -23,328 +23,219 @@
 </template>
 <script setup>
 import { ref } from 'vue';
-import { useRuntimeConfig } from '#app';
-import { useHead, useSeoMeta } from '@unhead/vue';
+import { useRuntimeConfig, useHead, useSeoMeta } from '#imports';
 import HeroSection from '~/components/Home/HeroSection.vue';
 import CtaSection from '~/components/Home/CtaSection.vue';
 import ServicesSection from '~/components/Home/ServicesSection.vue';
 import Menu from '~/components/Home/Menu.vue';
 import Blog from '~/components/Home/Blog.vue';
 import Gallery from '~/components/Home/Gallery.vue';
-
 import AboutSection from '~/components/Home/AboutSection.vue';
 import Reviews from '~/components/Home/Reviews.vue';
 
-// SEO Meta Tags
+const config = useRuntimeConfig();
+
+const business = {
+  name: 'Hookah Time LA',
+  legalName: 'Hookah Time LA',
+  url: 'https://hookahtimela.com',
+  logo: 'https://hookahtimela.com/logo.png',
+  image: 'https://hookahtimela.com/banner.jpg',
+  telephone: '+14244240044',
+  email: 'info@hookahtimela.com',
+  priceRange: '$$',
+  ratingValue: 4.9,
+  reviewCount: 287,
+  address: {
+    streetAddress: '4716 Woodman Ave',
+    addressLocality: 'Los Angeles',
+    addressRegion: 'CA',
+    postalCode: '91423',
+    addressCountry: 'US',
+  },
+  geo: { latitude: '34.1689', longitude: '-118.4379' },
+  openingHours: 'Mo-Su 14:00-02:00',
+  sameAs: [
+    'https://www.instagram.com/hookahtimela',
+    'https://www.tiktok.com/@hookahtimela',
+    'https://g.page/hookahtimela',
+  ],
+};
+
 useHead({
-  title: 'Hookah Time LA |  Premium Hookah Lounge in Los Angeles | 400+ Flavors',
-  meta: [
-    {
-      name: 'description',
-      content: 'Experience LA\'s best hookah lounge at Hookah Time! 400+ premium flavors, expert mix masters, indoor & outdoor seating. Open 2PM-2AM daily. Ladies Night every day! Located at 4716 Woodman Ave. ☎️ +1 424-424-0044',
-    },
-    {
-      name: 'keywords',
-      content: 'hookah lounge Los Angeles, best hookah LA, hookah bar LA, shisha lounge, hookah flavors, premium hookah, late night hookah, ladies night hookah, outdoor hookah lounge, Woodman Ave hookah, Valley Village hookah, Sherman Oaks hookah',
-    },
-    {
-      name: 'robots',
-      content: 'index, follow',
-    },
-    // Open Graph Tags
-    {
-      property: 'og:title',
-      content: 'Hookah Time LA |  Premium Hookah Lounge in Los Angeles',
-    },
-    {
-      property: 'og:description',
-      content: '400+ premium flavors, expert mix masters, indoor & outdoor seating. Open 2PM-2AM daily. Ladies get FREE refills after 6PM! Reserve your table now.',
-    },
-    {
-      property: 'og:type',
-      content: 'website',
-    },
-    {
-      property: 'og:url',
-      content: 'https://hookahtimela.com/',
-    },
-    // Twitter Card Tags
-    {
-      name: 'twitter:card',
-      content: 'summary_large_image',
-    },
-    {
-      name: 'twitter:title',
-      content: 'Hookah Time LA |  Premium Hookah Lounge in Los Angeles',
-    },
-    {
-      name: 'twitter:description',
-      content: '400+ premium flavors, massive clouds guaranteed. Open late 2PM-2AM. Ladies Night every day with free refills!',
-    },
-  ],
-  link: [
-    {
-      rel: 'canonical',
-      href: 'https://hookahtimela.com/',
-    },
-  ],
+  title: 'Hookah Time LA | Best Hookah Lounge in Los Angeles | 400+ Flavors',
+  link: [{ rel: 'canonical', href: business.url }],
+});
+
+useSeoMeta({
+  description:
+    'Best hookah lounge in LA! 400+ premium flavors, expert mixologists, indoor/outdoor seating. Open 2PM-2AM daily. Ladies get FREE refills after 6PM. 4716 Woodman Ave, LA ☎ +1 424-424-0044',
+  keywords:
+    'hookah lounge los angeles, best hookah la, hookah bar sherman oaks, shisha valley village, premium hookah flavors, late night hookah, ladies night hookah, outdoor hookah la, woodman ave hookah',
+  ogTitle: business.name + ' | Premium Hookah Lounge in Los Angeles',
+  ogDescription: '400+ flavors, expert mixes, indoor & outdoor seating. Open till 2AM. Ladies Night every day with FREE refills!',
+  ogUrl: business.url,
+  ogImage: business.image,
+  ogType: 'website',
+  ogLocale: 'en_US',
+  twitterCard: 'summary_large_image',
+  twitterSite: '@hookahtimela',
+  twitterCreator: '@hookahtimela',
+  robots: 'index, follow',
+});
+
+useHead({
   script: [
     {
       type: 'application/ld+json',
-      innerHTML: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "NightClub",
-        "name": "Hookah Time LA",
-        "description": "LA's premier hookah lounge featuring 400+ premium flavors, expert mix masters, and both indoor & outdoor seating. Open 2PM-2AM daily with special Ladies Night promotions.",
-        "url": "https://hookahtimela.com/",
-        "telephone": "+1-424-424-0044",
-        "email": "info@hookahtimela.com",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "4716 Woodman Ave",
-          "addressLocality": "Los Angeles",
-          "addressRegion": "CA",
-          "postalCode": "91423",
-          "addressCountry": "US"
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'NightClub',
+        '@id': business.url + '#organization',
+        name: business.name,
+        legalName: business.legalName,
+        description:
+          "LA's top hookah lounge with 400+ premium flavors, expert mix masters, indoor & outdoor seating. Open daily 2PM-2AM. Ladies Night every day!",
+        url: business.url,
+        logo: business.logo,
+        image: business.image,
+        telephone: business.telephone,
+        email: business.email,
+        priceRange: business.priceRange,
+        currenciesAccepted: 'USD',
+        paymentAccepted: 'Cash, Credit Card',
+        address: { '@type': 'PostalAddress', ...business.address },
+        geo: { '@type': 'GeoCoordinates', ...business.geo },
+        openingHoursSpecification: {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+          opens: '14:00',
+          closes: '02:00',
         },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "34.1689",
-          "longitude": "-118.4379"
+        sameAs: business.sameAs,
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: business.ratingValue,
+          reviewCount: business.reviewCount,
+          bestRating: 5,
+          worstRating: 1,
         },
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"
-          ],
-          "opens": "14:00",
-          "closes": "02:00"
-        },
-        "priceRange": "$$",
-        "sameAs": [
-          "https://www.instagram.com/hookahtimela",
-          "https://www.tiktok.com/@hookahtimela"
+        amenityFeature: [
+          { '@type': 'LocationFeatureSpecification', name: 'Outdoor Seating', value: true },
+          { '@type': 'LocationFeatureSpecification', name: 'Indoor Seating', value: true },
+          { '@type': 'LocationFeatureSpecification', name: 'Guest Parking', value: true },
+          { '@type': 'LocationFeatureSpecification', name: 'WiFi', value: true },
         ],
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "287",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
-        "paymentAccepted": "Cash, Credit Card",
-        "currenciesAccepted": "USD",
-        "amenityFeature": [
-          {
-            "@type": "LocationFeatureSpecification",
-            "name": "Outdoor Seating",
-            "value": true
-          },
-          {
-            "@type": "LocationFeatureSpecification",
-            "name": "Guest Parking",
-            "value": true
-          },
-          {
-            "@type": "LocationFeatureSpecification",
-            "name": "Indoor Seating",
-            "value": true
-          }
-        ],
-        "servesCuisine": "Hookah Lounge",
-        "hasMenu": {
-          "@type": "Menu",
-          "name": "Hookah Menu",
-          "description": "Premium hookah flavors including AL FAKHER, FUMARI, STARBUZZ, TANGIERS, DARKSIDE, BLACKBURN, and more",
-          "hasMenuSection": [
+        servesCuisine: 'Hookah, Shisha, Lounge',
+        hasMenu: {
+          '@type': 'Menu',
+          name: 'Hookah Menu',
+          hasMenuSection: [
             {
-              "@type": "MenuSection",
-              "name": "Hookah Bowls",
-              "description": "400+ premium flavors from top brands",
-              "hasMenuItem": [
+              '@type': 'MenuSection',
+              name: 'Premium Bowls',
+              hasMenuItem: [
                 {
-                  "@type": "MenuItem",
-                  "name": "AL FAKHER Hookah Bowl",
-                  "description": "Premium shisha flavors including Grape, Orange, Gum Mint, Double Apple",
-                  "offers": {
-                    "@type": "Offer",
-                    "price": "38",
-                    "priceCurrency": "USD"
-                  }
+                  '@type': 'MenuItem',
+                  name: 'AL FAKHER Bowl',
+                  description: 'Grape, Mint, Double Apple, Orange',
+                  offers: { '@type': 'Offer', price: '38', priceCurrency: 'USD' },
                 },
                 {
-                  "@type": "MenuItem",
-                  "name": "TANGIERS Hookah Bowl",
-                  "description": "Premium flavors including Peach Ice Tea, Cane Mint, Kashmir Peach",
-                  "offers": {
-                    "@type": "Offer",
-                    "price": "47",
-                    "priceCurrency": "USD"
-                  }
-                }
-              ]
-            }
-          ]
+                  '@type': 'MenuItem',
+                  name: 'TANGIERS Bowl',
+                  description: 'Cane Mint, Kashmir Peach',
+                  offers: { '@type': 'Offer', price: '47', priceCurrency: 'USD' },
+                },
+              ],
+            },
+          ],
         },
-        "event": {
-          "@type": "Event",
-          "name": "Ladies Night",
-          "description": "Ladies get free refills after 6PM every day",
-          "startDate": "2025-01-01",
-          "endDate": "2025-12-31",
-          "eventSchedule": {
-            "@type": "Schedule",
-            "byDay": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-            "startTime": "18:00",
-            "endTime": "02:00"
-          },
-          "location": {
-            "@type": "Place",
-            "name": "Hookah Time LA",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "4716 Woodman Ave",
-              "addressLocality": "Los Angeles",
-              "addressRegion": "CA",
-              "postalCode": "91423"
-            }
-          },
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD",
-            "description": "Free refills for ladies"
-          }
-        }
-      })
+        event: {
+          '@type': 'Event',
+          name: 'Ladies Night — Free Refills',
+          description: 'Every day after 6PM — ladies get unlimited free refills',
+          eventStatus: 'https://schema.org/EventScheduled',
+          eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+          startDate: '2025-01-01',
+          endDate: '2025-12-31',
+          organizer: { '@type': 'Organization', name: business.name, url: business.url },
+          location: { '@type': 'Place', name: business.name, address: { '@type': 'PostalAddress', ...business.address } },
+          offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', name: 'Free Refills for Ladies' },
+        },
+      }),
     },
     {
       type: 'application/ld+json',
-      innerHTML: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
           {
-            "@type": "Question",
-            "name": "What are your opening hours?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We're open every day from 2:00 PM to 2:00 AM. Whether you want an afternoon session or late-night vibes, we're here for you 12 hours daily!"
-            }
+            '@type': 'Question',
+            name: 'What are your hours?',
+            acceptedAnswer: { '@type': 'Answer', text: 'Open every day from 2:00 PM to 2:00 AM.' },
           },
           {
-            "@type": "Question",
-            "name": "Do you offer custom flavor mixes?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Absolutely! With 400+ premium flavors, our expert mix masters can create any custom blend you desire. Just tell us what you like and we'll make it perfect."
-            }
+            '@type': 'Question',
+            name: 'Do you have outdoor seating?',
+            acceptedAnswer: { '@type': 'Answer', text: 'Yes! We offer both indoor and outdoor hookah seating.' },
           },
           {
-            "@type": "Question",
-            "name": "Is there parking available?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes! We offer convenient guest parking for all our visitors. You'll never have trouble finding a spot when you visit Hookah Time LA."
-            }
+            '@type': 'Question',
+            name: 'Is parking available?',
+            acceptedAnswer: { '@type': 'Answer', text: 'Yes, free guest parking is available on-site.' },
           },
           {
-            "@type": "Question",
-            "name": "What's the Ladies Night special?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Every single day is Ladies Night at Hookah Time! Ladies get FREE refills after 6:00 PM. Bring your crew and enjoy unlimited refills all night long."
-            }
+            '@type': 'Question',
+            name: 'What is Ladies Night?',
+            acceptedAnswer: { '@type': 'Answer', text: 'Every day after 6PM, ladies get FREE unlimited refills!' },
           },
           {
-            "@type": "Question",
-            "name": "What brands of tobacco do you offer?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We carry premium brands including AL FAKHER, FUMARI, STARBUZZ, TANGIERS, BANGER, DARKSIDE, BLACKBURN, MUSTHAVE, and STARLINE - over 400 different flavors to choose from!"
-            }
-          }
-        ]
-      })
-    }
-  ]
+            '@type': 'Question',
+            name: 'How many flavors do you have?',
+            acceptedAnswer: { '@type': 'Answer', text: 'Over 400 premium flavors from AL FAKHER, TANGIERS, STARBUZZ, FUMARI and more.' },
+          },
+        ],
+      }),
+    },
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: business.url },
+        ],
+      }),
+    },
+  ],
 });
 
-// Additional SEO meta using useSeoMeta
-useSeoMeta({
-  title: 'Hookah Time LA |  Premium Hookah Lounge in Los Angeles | 400+ Flavors',
-  description: 'Experience LA\'s best hookah lounge at Hookah Time! 400+ premium flavors, expert mix masters, indoor & outdoor seating. Open 2PM-2AM daily. Ladies Night every day! ☎️ +1 424-424-0044',
-  ogTitle: 'Hookah Time LA |  Premium Hookah Lounge in Los Angeles',
-  ogDescription: '400+ premium flavors, expert mix masters, indoor & outdoor seating. Open 2PM-2AM daily. Ladies get FREE refills after 6PM!',
-  twitterCard: 'summary_large_image',
-  twitterTitle: 'Hookah Time LA |  Premium Hookah Lounge in Los Angeles',
-  twitterDescription: '400+ premium flavors, massive clouds guaranteed. Open late 2PM-2AM. Ladies Night every day!',
-});
-
-
-// Component state
-const formData = ref({
-  name: '',
-  phone: '',
-  email: '',
-});
-
-// Define hero image
-const heroImage = 'https://www.xdigit.us/_nuxt/hero.BK7PjjLv.webp';
-
-// Methods
-const getImageUrl = (url) => {
-  return url;
-};
-
-const formatPrice = (price, categories) => {
-  const isEntertainmentService =
-    categories &&
-    categories.some((cat) => cat.title && cat.title.toLowerCase().includes('entertainment'));
-  return isEntertainmentService ? `Starting at $${price.toFixed(2)}` : `$${price.toFixed(2)}`;
-};
+const formData = ref({ name: '', phone: '', email: '' });
 
 const submitQuote = async () => {
   try {
-    const config = useRuntimeConfig();
-    const response = await fetch(`${config.public.shopApiUrl}/quotes`, {
+    const res = await fetch(`${config.public.API_URL}/quotes`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${config.public.shopApiToken}`,
+        Authorization: `Bearer ${config.public.API_TOKEN}`,
       },
-      body: JSON.stringify({
-        data: {
-          name: formData.value.name,
-          phone: formData.value.phone,
-          email: formData.value.email,
-        },
-      }),
+      body: JSON.stringify({ data: formData.value }),
     });
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+    if (!res.ok) throw new Error('Failed');
 
-    // On success, reset the form
-    formData.value = {
-      name: '',
-      phone: '',
-      email: '',
-    };
-    alert('Your quote request has been submitted successfully!');
-  } catch (error) {
-    console.error('Error submitting quote:', error);
-    alert('There was an error submitting your quote. Please try again.');
+    formData.value = { name: '', phone: '', email: '' };
+    alert('Quote request sent!');
+  } catch (err) {
+    alert('Error. Please try again.');
   }
 };
 </script>
+
+
 <style scoped>
 .home {
   width: 100%;
