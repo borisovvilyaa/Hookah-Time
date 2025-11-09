@@ -91,7 +91,6 @@ export default defineNuxtConfig({
       ]
 
       try {
-        // Получаем environment variables напрямую
         const API_URL = process.env.NUXT_API_URL
         const API_TOKEN = process.env.NUXT_API_TOKEN
 
@@ -100,7 +99,6 @@ export default defineNuxtConfig({
           return staticRoutes
         }
 
-        // Используем нативный fetch вместо $fetch
         const response = await fetch(`${API_URL}/blogs?populate=*`, {
           headers: { 
             'Authorization': `Bearer ${API_TOKEN}`,
@@ -122,18 +120,50 @@ export default defineNuxtConfig({
         }
 
         const blogRoutes = data.data
-          .filter(post => post.slug) // Только посты со slug
+          .filter(post => post.slug)
           .map(post => {
             console.log('Sitemap: Adding post:', post.slug)
+            
+            // Извлекаем URL изображения
+            const images = []
+            if (post.FeaturedImage) {
+              let imageUrl = ''
+              
+              // Проверяем различные форматы изображения
+              if (post.FeaturedImage.formats?.large?.url) {
+                imageUrl = post.FeaturedImage.formats.large.url
+              } else if (post.FeaturedImage.formats?.medium?.url) {
+                imageUrl = post.FeaturedImage.formats.medium.url
+              } else if (post.FeaturedImage.url) {
+                imageUrl = post.FeaturedImage.url
+              }
+              
+              // Если URL относительный, добавляем базовый URL API
+              if (imageUrl && imageUrl.startsWith('/')) {
+                imageUrl = `${API_URL}${imageUrl}`
+              }
+              
+              if (imageUrl) {
+                images.push({
+                  loc: imageUrl,
+                  caption: post.title || '',
+                  title: post.title || '',
+                })
+              }
+            }
+            
             return {
               url: `/blog/${post.slug}`,
               lastmod: post.updatedAt || post.Time || new Date().toISOString(),
               changefreq: 'monthly',
               priority: 0.8,
+              images: images.length > 0 ? images : undefined,
             }
           })
 
         console.log('Sitemap: Total routes:', staticRoutes.length + blogRoutes.length)
+        console.log('Sitemap: Routes with images:', blogRoutes.filter(r => r.images).length)
+        
         return [...staticRoutes, ...blogRoutes]
       } catch (error) {
         console.error('Sitemap API error:', error.message)
