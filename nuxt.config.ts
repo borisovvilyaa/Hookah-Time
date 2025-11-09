@@ -84,34 +84,59 @@ export default defineNuxtConfig({
       priority: 0.8,
     },
 
-    routes: async () => {
-      const config = useRuntimeConfig()
+    urls: async () => {
       const staticRoutes = [
         { url: '/', changefreq: 'daily', priority: 1.0 },
         { url: '/blog', changefreq: 'daily', priority: 0.9 },
       ]
 
       try {
-        const response = await $fetch(`${config.public.API_URL}/blogs`, {
-          params: { 'populate': '*' },
-          headers: { Authorization: `Bearer ${config.public.API_TOKEN}` },
+        // Получаем environment variables напрямую
+        const API_URL = process.env.NUXT_API_URL
+        const API_TOKEN = process.env.NUXT_API_TOKEN
+
+        if (!API_URL || !API_TOKEN) {
+          console.warn('Sitemap: API_URL or API_TOKEN not configured')
+          return staticRoutes
+        }
+
+        // Используем нативный fetch вместо $fetch
+        const response = await fetch(`${API_URL}/blogs?populate=*`, {
+          headers: { 
+            'Authorization': `Bearer ${API_TOKEN}`,
+            'Content-Type': 'application/json'
+          },
         })
 
-        const blogRoutes = (response?.data || []).map(post => {
-          // Получаем slug из правильного места в зависимости от структуры API
-          const slug = post.slug || post.attributes?.slug || post.documentId
-          
-          return {
-            url: `/blog/${slug}`,
-            lastmod: post.updatedAt || post.attributes?.updatedAt || post.Time || new Date().toISOString().split('T')[0],
-            changefreq: 'monthly',
-            priority: 0.8,
-          }
-        })
+        if (!response.ok) {
+          console.error('Sitemap: API request failed with status:', response.status)
+          return staticRoutes
+        }
 
+        const data = await response.json()
+        console.log('Sitemap: Fetched posts count:', data?.data?.length || 0)
+
+        if (!data?.data || !Array.isArray(data.data)) {
+          console.warn('Sitemap: No blog posts found or invalid response format')
+          return staticRoutes
+        }
+
+        const blogRoutes = data.data
+          .filter(post => post.slug) // Только посты со slug
+          .map(post => {
+            console.log('Sitemap: Adding post:', post.slug)
+            return {
+              url: `/blog/${post.slug}`,
+              lastmod: post.updatedAt || post.Time || new Date().toISOString(),
+              changefreq: 'monthly',
+              priority: 0.8,
+            }
+          })
+
+        console.log('Sitemap: Total routes:', staticRoutes.length + blogRoutes.length)
         return [...staticRoutes, ...blogRoutes]
       } catch (error) {
-        console.error('Sitemap API error:', error)
+        console.error('Sitemap API error:', error.message)
         return staticRoutes
       }
     },
