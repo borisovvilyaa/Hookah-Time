@@ -163,7 +163,6 @@
     </div>
   </article>
 </template>
-
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 
@@ -274,6 +273,12 @@ const formatDate = (dateString) => {
   }
 }
 
+// Helper function to get text from children
+const getTextFromChildren = (children) => {
+  if (!children) return ''
+  return children.map(child => child.text || '').join('')
+}
+
 // Helper function to get excerpt
 const getExcerpt = (post) => {
   if (!post?.Content || post.Content.length === 0) return ''
@@ -284,7 +289,7 @@ const getExcerpt = (post) => {
   
   if (firstParagraph) {
     const text = getTextFromChildren(firstParagraph.children)
-    return text.length > 100 ? text.substring(0, 100) + '...' : text
+    return text.length > 160 ? text.substring(0, 160) + '...' : text
   }
   
   return ''
@@ -294,12 +299,6 @@ const getExcerpt = (post) => {
 const hasText = (block) => {
   if (!block.children || block.children.length === 0) return false
   return block.children.some(child => child.text && child.text.trim() !== '')
-}
-
-// Helper function to get text from children
-const getTextFromChildren = (children) => {
-  if (!children) return ''
-  return children.map(child => child.text || '').join('')
 }
 
 // Helper function to render children with formatting
@@ -349,6 +348,7 @@ const copyLink = async () => {
     alert('Link copied to clipboard!')
   } catch (err) {
     console.error('Failed to copy link:', err)
+    alert('Failed to copy link')
   }
 }
 
@@ -368,7 +368,25 @@ useHead(() => ({
     { property: 'og:description', content: getExcerpt(post.value) || post.value.title },
     { property: 'og:image', content: getHeroImage(post.value) },
     { property: 'og:url', content: `https://hookahtimela.com/blog/${slug}` },
-  ] : []
+    { property: 'og:type', content: 'article' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+  ] : [],
+  link: [{ rel: 'canonical', href: `https://hookahtimela.com/blog/${slug}` }],
+  script: [{
+    type: 'application/ld+json',
+    children: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: post.value?.title,
+      description: getExcerpt(post.value),
+      image: getHeroImage(post.value),
+      datePublished: post.value?.Time,
+      dateModified: post.value?.updatedAt || post.value?.Time,
+      author: { '@type': 'Organization', name: 'Hookah Time LA' },
+      publisher: { '@type': 'Organization', name: 'Hookah Time LA' },
+      mainEntityOfPage: { '@type': 'WebPage', '@id': `https://hookahtimela.com/blog/${slug}` },
+    })
+  }]
 }))
 
 onMounted(() => {
@@ -405,7 +423,6 @@ onUnmounted(() => {
   }
 })
 </script>
-
 <style scoped>
 * {
   margin: 0;

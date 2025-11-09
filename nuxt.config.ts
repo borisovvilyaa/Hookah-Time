@@ -1,7 +1,4 @@
-import { readdirSync } from 'fs'
-import { resolve } from 'path'
-import matter from 'gray-matter'
-
+// nuxt.config.ts
 export default defineNuxtConfig({
   ssr: true,
 
@@ -39,7 +36,6 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1.0',
       titleTemplate: '%s | Hookah Time LA',
       htmlAttrs: { lang: 'en' },
-
       meta: [
         { name: 'robots', content: 'index, follow' },
         { name: 'geo.region', content: 'US-CA' },
@@ -48,7 +44,6 @@ export default defineNuxtConfig({
         { name: 'ICBM', content: '34.1689, -118.4379' },
         { name: 'theme-color', content: '#a1a1a1' },
       ],
-
       link: [
         { rel: 'canonical', href: 'https://hookahtimela.com/' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -58,17 +53,14 @@ export default defineNuxtConfig({
         { rel: 'manifest', href: '/site.webmanifest' },
         { rel: 'preload', href: '/banner.jpg', as: 'image', type: 'image/jpeg', fetchpriority: 'high' },
       ],
-
       script: [
         { src: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', defer: true },
       ],
     },
-
     pageTransition: { name: 'page', mode: 'out-in' },
   },
 
   devtools: { enabled: true },
-
   modules: ['@pinia/nuxt', '@nuxt/image', '@nuxtjs/sitemap'],
 
   build: { transpile: ['gsap'] },
@@ -86,36 +78,42 @@ export default defineNuxtConfig({
     hostname: 'https://hookahtimela.com',
     gzip: true,
     cacheTime: 1000 * 60 * 15,
+
     defaults: {
       changefreq: 'weekly',
       priority: 0.8,
     },
+
     routes: async () => {
-      const routes = [
-        { url: '/', changefreq: 'daily', priority: 1.0, lastmod: new Date().toISOString().split('T')[0] },
+      const config = useRuntimeConfig()
+      const staticRoutes = [
+        { url: '/', changefreq: 'daily', priority: 1.0 },
         { url: '/blog', changefreq: 'daily', priority: 0.9 },
       ]
 
-      const blogDir = resolve('./content/blog')
-      const files = readdirSync(blogDir)
-        .filter(f => f.endsWith('.md'))
-        .filter(f => !f.startsWith('_'))
+      try {
+        const response = await $fetch(`${config.public.API_URL}/blogs`, {
+          params: { 'populate': '*' },
+          headers: { Authorization: `Bearer ${config.public.API_TOKEN}` },
+        })
 
-      const blogRoutes = files.map(file => {
-        const slug = file.replace('.md', '')
-        const filePath = resolve(blogDir, file)
-        const { data } = matter.read(filePath)
-        const lastmod = (data.updatedAt || data.date || new Date()).toISOString().split('T')[0]
+        const blogRoutes = (response?.data || []).map(post => {
+          // Получаем slug из правильного места в зависимости от структуры API
+          const slug = post.slug || post.attributes?.slug || post.documentId
+          
+          return {
+            url: `/blog/${slug}`,
+            lastmod: post.updatedAt || post.attributes?.updatedAt || post.Time || new Date().toISOString().split('T')[0],
+            changefreq: 'monthly',
+            priority: 0.8,
+          }
+        })
 
-        return {
-          url: `/blog/${slug}`,
-          lastmod,
-          changefreq: 'monthly',
-          priority: 0.8,
-        }
-      })
-
-      return [...routes, ...blogRoutes]
+        return [...staticRoutes, ...blogRoutes]
+      } catch (error) {
+        console.error('Sitemap API error:', error)
+        return staticRoutes
+      }
     },
   },
 
