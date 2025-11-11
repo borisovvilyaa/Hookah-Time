@@ -62,7 +62,7 @@ const business = {
 };
 
 useHead({
-  title: 'The Best Hookah Lounge in Valley Glen',
+  title: 'The Best Hookah Lounge in Sherman Oaks',
   link: [{ rel: 'canonical', href: business.url }],
 });
 
@@ -70,7 +70,7 @@ useSeoMeta({
   description:
     'Best hookah lounge in Los Angeles! 400+ premium flavors, expert mixologists, indoor/outdoor seating. Open 2PM-2AM daily. 4716 Woodman Ave, Los Angeles  +1 424-424-0044',
   keywords:
-    'hookah lounge los angeles, best hookah Los Angeles, hookah bar sherman oaks, shisha valley village, premium hookah flavors, late night hookah, outdoor hookah Los Angeles, woodman ave hookah',
+    'hookah lounge los angeles, best hookah Los Angeles, hookah bar sherman oaks, shisha Sherman Oaks, premium hookah flavors, late night hookah, outdoor hookah Los Angeles, woodman ave hookah',
   ogTitle: business.name + ' | Premium Hookah Lounge in Los Angeles',
   ogDescription: '400+ flavors, expert mixes, indoor & outdoor seating. Open till 2AM.',
   ogUrl: business.url,
