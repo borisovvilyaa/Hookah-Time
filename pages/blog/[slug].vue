@@ -354,7 +354,7 @@ const copyLink = async () => {
 
 // SEO Meta Tags
 useHead(() => ({
-  title: post.value ? `${post.value.title} | Hookah Time LA` : 'Blog | Hookah Time LA',
+  title: post.value ? `${post.value.title}` : 'Blog',
   meta: post.value ? [
     {
       name: 'description',

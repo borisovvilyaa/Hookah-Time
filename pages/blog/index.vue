@@ -347,11 +347,11 @@
   
   // SEO
   useHead({
-    title: 'Blog | Hookah Time LA',
+    title: 'Blog ',
     meta: [
       { name: 'description', content: 'Explore hookah culture, flavor reviews, and expert tips from LA\'s premium hookah lounge. Stay updated with the latest trends and stories.' },
       { name: 'keywords', content: 'hookah blog, hookah culture, flavor reviews, hookah tips, Los Angeles hookah' },
-      { property: 'og:title', content: 'Blog | Hookah Time LA' },
+      { property: 'og:title', content: 'Blog ' },
       { property: 'og:description', content: 'Explore hookah culture, flavor reviews, and expert tips from LA\'s premium hookah lounge.' },
       { property: 'og:url', content: 'https://hookahtimela.com/blog' },
       { property: 'og:type', content: 'website' },
